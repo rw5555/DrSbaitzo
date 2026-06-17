@@ -1,5 +1,8 @@
 'use strict';
 
+// ── AI HYBRID ─────────────────────────────────────────────────────────────
+const WORKER_URL = 'https://sbaitzo-proxy.ryannwiller.workers.dev/';
+
 // ── STATE ──────────────────────────────────────────────────────────────────
 const S = {
   name:             null,
@@ -23,6 +26,7 @@ const S = {
   diagnosisCount:   0,
   summaryFired:     false,
   topicCounts:      {},
+  aiHistory:        [],
 };
 
 // ── REFLECTION TABLE ───────────────────────────────────────────────────────
@@ -559,6 +563,33 @@ const EXPERTISE_CLAIMS = [
   "I WROTE THE CHAPTER ON THIS.",
 ];
 
+// ── AI CALL ────────────────────────────────────────────────────────────────
+async function callAI(userInput) {
+  if (!WORKER_URL || WORKER_URL === 'REPLACE_WITH_YOUR_WORKER_URL') return null;
+  try {
+    const revealedTopics = [...new Map(S.memory.map(m => [m.topic, m])).values()].map(m => m.label);
+    const resp = await Promise.race([
+      fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userInput,
+          patientName: S.name || null,
+          revealedTopics,
+          recentHistory: S.aiHistory.slice(-8),
+        }),
+      }),
+      new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 5000)),
+    ]);
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    const aiText = data.text?.trim().toUpperCase();
+    return aiText || null;
+  } catch {
+    return null;
+  }
+}
+
 function matchInput(raw) {
   const input = raw.trim().toLowerCase();
 
@@ -675,13 +706,13 @@ function matchInput(raw) {
     return { text: fillVars(pickUnique(PATTERNS_DATA.intake), null), action: null };
   }
 
-  // Tone-arc fallback: clinical → sarcastic → contemptuous
+  // Tone-arc fallback — kept as silent backup if AI call fails or times out
   const tone = getTone();
   const tonePool = TONE_FALLBACKS[tone];
   const toneUnused = tonePool.filter(r => !S.lastResponses.has(r));
   const tonePick = (toneUnused.length ? toneUnused : tonePool)[Math.floor(Math.random() * (toneUnused.length || tonePool.length))];
-  S.lastResponses.add(tonePick);
-  return { text: tonePick, action: null };
+  // Note: NOT added to lastResponses here — handleInput does that only if AI fails
+  return { text: tonePick, action: null, useAI: true };
 }
 
 // ── SESSION SUMMARY ────────────────────────────────────────────────────────
@@ -857,7 +888,25 @@ async function respond(raw) {
 
   addLine('>' + input, 'user');
 
-  const { text, action, pause, expertiseLevel, repeatedTopic } = matchInput(input);
+  const { text: matchedText, action, pause, expertiseLevel, repeatedTopic, useAI } = matchInput(input);
+
+  // If tone fallback flagged AI, try the Worker — use tone fallback if AI fails/times out
+  let text = matchedText;
+  if (useAI) {
+    const aiText = await callAI(input);
+    if (aiText) {
+      text = aiText;
+    } else {
+      S.lastResponses.add(matchedText); // AI failed — mark tone fallback as used
+    }
+  }
+
+  // Track conversation history for AI context (last 8 exchanges)
+  S.aiHistory.push(
+    { role: 'user',  parts: [{ text: input }] },
+    { role: 'model', parts: [{ text }] }
+  );
+  if (S.aiHistory.length > 16) S.aiHistory.splice(0, 2);
 
   // Collect prefix lines (expertise claim, repeated-topic interjection)
   const prefixLines = [];
