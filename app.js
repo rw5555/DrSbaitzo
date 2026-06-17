@@ -690,8 +690,8 @@ function matchInput(raw) {
   }
   S.lastWasDiagnosis = false;
 
-  // Long input: pick one interesting word and fixate on it
-  if (inputWords.length >= 12) {
+  // Long input: 65% chance AI handles it, 35% fixate on one word
+  if (inputWords.length >= 12 && Math.random() >= 0.65) {
     return { text: getLongResponse(inputWords), action: null };
   }
 
