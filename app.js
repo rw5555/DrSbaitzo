@@ -124,6 +124,7 @@ function prepareText(text) {
     // Too short to match: fly, try, dry, sky, by, my (2–3 letters, need ≥4 total).
     .replace(/\b(\w{2,}[bcdfghjklmnpqrstvwxz])y\b/gi, '$1ee')
     .toLowerCase() + ' ,';
+}
 
 const ESPEAK_OPTS = { amplitude: 100, pitch: 42, speed: 150, wordgap: 1 };
 
