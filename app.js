@@ -1023,6 +1023,17 @@ document.addEventListener('keydown', async e => {
     return;
   }
 
+  if ((e.key === 'v' || e.key === 'V') && (e.ctrlKey || e.metaKey)) {
+    e.preventDefault();
+    navigator.clipboard.readText().then(text => {
+      if (!text) return;
+      S.buffer += text.replace(/[\r\n]+/g, ' ').trim();
+      $typed.textContent = S.buffer;
+      $output.scrollTop = $output.scrollHeight;
+    }).catch(() => {});
+    return;
+  }
+
   if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
     e.preventDefault();
     S.buffer += e.key;
