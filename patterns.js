@@ -474,7 +474,7 @@ patterns: [
   "WHAT IS THE THING ON THAT LIST THAT IS KEEPING YOU UP AT NIGHT?",
   "UNLOAD IT. WE HAVE TIME. WHAT COMES FIRST?" ] },
 
-{ pattern: "my name is (.+)|i am (.+)|call me (.+)|i'm (.+)|im (.+)", topic: "identity", storeName: true, useAI: 0.40, responses: [
+{ pattern: "^my name is (.+)|^i am (.+)|^call me (.+)|^i'?m (.+)|^im (.+)", topic: "identity", storeName: true, useAI: 0.40, responses: [
   "NOTED, {NAME}. WHAT IS ON YOUR MIND?",
   "I SHALL CALL YOU {NAME}. YOU MAY CALL ME DR. SBAITZO. WHAT WOULD YOU LIKE TO DISCUSS?",
   "{NAME}. NOTED. NOW — WHAT EXACTLY MADE YOU COME HERE TODAY?",
