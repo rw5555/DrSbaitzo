@@ -226,6 +226,8 @@ function fillVars(str, match) {
     }
   }
   if (S.name) out = out.replace(/\{NAME\}/g, S.name.toUpperCase());
+  const DAY = new Date().toLocaleDateString('en-US', { weekday: 'long', timeZone: 'America/Chicago' }).toUpperCase();
+  out = out.replace(/\{DAY\}/g, DAY);
   return out;
 }
 
