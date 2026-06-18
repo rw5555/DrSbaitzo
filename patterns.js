@@ -1860,6 +1860,176 @@ patterns: [
   "IS THAT A RATING? AN AGE? A QUANTITY OF PROBLEMS? SOME CONTEXT WOULD HELP.",
   "INTERESTING NUMBER. WHAT DOES IT REPRESENT?" ] },
 
+// ── EXPANDED TOPIC PATTERNS ──────────────────────────────────────────────────
+
+{ pattern: "i (have to|need to|must) (get it right|be perfect|do it perfectly|do everything right)|nothing is (ever )?(good enough|perfect enough)|i (can'?t stand|hate) making mistakes|i'?m a perfectionist", topic: "perfectionism", responses: [
+  "PERFECTIONISM IS NOT A PERSONALITY TRAIT. IT IS A DEFENSE MECHANISM. WHAT ARE YOU DEFENDING AGAINST?",
+  "YOU CANNOT GET IT WRONG IF YOU NEVER FINISH. IS THAT WHAT THIS IS ABOUT?",
+  "THE STANDARD YOU HOLD YOURSELF TO — WHO SET IT? BECAUSE I DO NOT THINK IT WAS YOU.",
+  "PERFECT IS NOT A DESTINATION. IT IS AN EXCUSE. WHAT ARE YOU AVOIDING BY CHASING IT?" ] },
+
+{ pattern: "i'?m? (jealous|envious)|i envy|i wish i had what|they have (what i want|everything|it all)|(i feel |i'?m )(jealous|envious) of", topic: "jealousy", responses: [
+  "JEALOUSY IS JUST DESIRE WITH NOWHERE TO GO. WHAT DO YOU ACTUALLY WANT?",
+  "YOU ARE NOT JEALOUS OF THEM. YOU ARE DISAPPOINTED IN YOUR OWN SITUATION. THOSE ARE DIFFERENT THINGS.",
+  "WHAT SPECIFICALLY DO THEY HAVE THAT YOU WANT? NAME IT PRECISELY.",
+  "JEALOUSY IS DIAGNOSTIC. IT TELLS YOU EXACTLY WHAT YOU THINK YOU LACK. SO — WHAT DO YOU THINK YOU LACK?" ] },
+
+{ pattern: "i'?m? (ashamed|so ashamed)|i feel (shame|ashamed)|i can'?t tell anyone|i'?m embarrassed (about|that|by)|i (hide|am hiding) (this|it|that|who i am)", topic: "shame", responses: [
+  "SHAME REQUIRES AN AUDIENCE. WHOSE VOICE IS THAT IN YOUR HEAD?",
+  "YOU ARE HIDING SOMETHING. THE INTERESTING QUESTION IS WHO YOU ARE HIDING IT FROM — THEM OR YOURSELF.",
+  "SHAME IS NOT ABOUT WHAT YOU DID. IT IS ABOUT WHAT YOU BELIEVE THAT MAKES YOU.",
+  "WHAT WOULD HAPPEN IF SOMEONE FOUND OUT? WALK ME THROUGH THAT SCENARIO SPECIFICALLY." ] },
+
+{ pattern: "i feel (so )?(guilty|terrible about|awful about)|it'?s? my fault|i blame myself|i should have( done| said)?|i shouldn'?t have (done|said)", topic: "guilt", responses: [
+  "GUILT IS USEFUL FOR ABOUT TEN MINUTES. AFTER THAT IT IS JUST SELF-PUNISHMENT WITH NO OUTCOME.",
+  "YOU BLAME YOURSELF. THE QUESTION IS WHETHER THAT BLAME IS ACCURATE OR CONVENIENT.",
+  "WHAT WOULD FORGIVING YOURSELF ACTUALLY LOOK LIKE? DESCRIBE IT.",
+  "YOU ARE CARRYING THIS. THE QUESTION IS WHETHER IT IS YOURS TO CARRY." ] },
+
+{ pattern: "i (was|got|feel|felt|have been) (rejected|turned down|unwanted|left out)|they don'?t want me|nobody wants me|i (feel|felt) unwanted", topic: "rejection", responses: [
+  "REJECTION IS DATA. THE QUESTION IS WHAT YOU ARE DOING WITH IT.",
+  "YOU WERE REJECTED. THE STORY YOU TOLD YOURSELF ABOUT WHAT THAT MEANS — THAT IS WHAT INTERESTS ME.",
+  "NOT BEING CHOSEN BY ONE PERSON OR GROUP IS NOT A VERDICT ON YOU. THOUGH I NOTE YOU ARE TREATING IT AS ONE.",
+  "WHAT DID YOU DECIDE ABOUT YOURSELF THE MOMENT IT HAPPENED?" ] },
+
+{ pattern: "i (can'?t|don'?t) trust (anyone|people|them|him|her|others)|i have trust issues|people always (let me down|disappoint me|betray me)|i'?ve been (betrayed|lied to|let down)", topic: "trust", responses: [
+  "YOU STOPPED TRUSTING PEOPLE. SOMETHING SPECIFIC CAUSED THAT. WHAT WAS IT?",
+  "DISTRUST IS LEARNED. YOU WERE NOT BORN THIS WAY. WHO TAUGHT YOU?",
+  "NOT TRUSTING ANYONE IS EXHAUSTING TO MAINTAIN. HOW LONG HAVE YOU BEEN DOING THIS?",
+  "THE QUESTION IS NOT WHETHER PEOPLE ARE TRUSTWORTHY. THE QUESTION IS WHAT IT COSTS YOU TO ASSUME THEY ARE NOT." ] },
+
+{ pattern: "i (can'?t|don'?t know how to) say no|people (walk all over|take advantage of|use) me|i (have no|don'?t have|lack) boundaries|i let people (walk over|take advantage)", topic: "boundaries", responses: [
+  "YOU CANNOT SAY NO. THAT IS NOT A PERSONALITY TRAIT. THAT IS A SURVIVAL STRATEGY THAT OUTLIVED ITS USEFULNESS.",
+  "WHO TAUGHT YOU THAT SAYING NO WAS DANGEROUS?",
+  "PEOPLE WILL TAKE WHAT YOU OFFER. YOU HAVE BEEN OFFERING EVERYTHING. WHAT DO YOU GET IN RETURN?",
+  "THE INABILITY TO SAY NO IS USUALLY ABOUT FEAR OF A SPECIFIC OUTCOME. WHAT ARE YOU AFRAID WILL HAPPEN?" ] },
+
+{ pattern: "i (believe in|pray|have faith|lost my faith|question god|don'?t believe in god)|my (faith|religion|belief|church|spirituality)|i'?m (religious|spiritual|an atheist|agnostic)", topic: "spirituality", responses: [
+  "FAITH OR ITS ABSENCE — BOTH TELL ME SOMETHING ABOUT WHAT YOU NEED TO BELIEVE IN ORDER TO FUNCTION.",
+  "WHAT DOES YOUR BELIEF SYSTEM ASK OF YOU? AND ARE YOU DELIVERING?",
+  "YOU BROUGHT UP SPIRITUALITY. THAT IS RARELY ABSTRACT. WHAT IS THE SPECIFIC THING YOU ARE WORKING THROUGH?",
+  "INTERESTING. AND DOES YOUR BELIEF COMFORT YOU, OR DOES IT HOLD YOU ACCOUNTABLE? WHICH DO YOU NEED MORE?" ] },
+
+{ pattern: "i'?m (getting old|not young|afraid of aging|too old)|i feel old|i (miss|missed) (being young|my youth|when i was young)|i'?m getting older", topic: "aging", responses: [
+  "AGING DOES NOT BOTHER MOST PEOPLE. WHAT IT REPRESENTS DOES. WHAT DOES IT REPRESENT TO YOU?",
+  "YOU ARE AFRAID OF AGING. WHAT SPECIFICALLY DO YOU THINK YOU ARE RUNNING OUT OF?",
+  "GETTING OLDER IS NOT THE PROBLEM. FEELING LIKE YOU HAVE NOT DONE ENOUGH YET — THAT IS THE PROBLEM.",
+  "WHAT DID YOU THINK YOU WOULD HAVE FIGURED OUT BY NOW?" ] },
+
+{ pattern: "i (think about|am afraid of|fear|worry about) (death|dying|dying alone)|i don'?t want to die|what happens when (we|i) die|i'?ve thought about (death|dying)|mortality", topic: "death", responses: [
+  "THINKING ABOUT DEATH IS NOT MORBID. IT IS CLARIFYING. WHAT HAS IT CLARIFIED FOR YOU?",
+  "FEAR OF DEATH IS USUALLY FEAR OF SOMETHING MORE SPECIFIC. WHAT IS IT REALLY?",
+  "YOU ARE AWARE THAT THIS ENDS. WHAT ARE YOU DOING WITH THAT INFORMATION?",
+  "MOST PEOPLE THINK ABOUT DEATH AND THEN CHANGE THE SUBJECT. YOU BROUGHT IT HERE. WHY TODAY?" ] },
+
+{ pattern: "my (divorce|separation)|i'?m (divorced|separated|going through a divorce)|we'?re (splitting up|separating|getting divorced)|my (ex husband|ex wife|ex spouse)", topic: "divorce", responses: [
+  "DIVORCE IS NOT THE FAILURE PEOPLE PRETEND IT IS. BUT SOMETHING FAILED. WHAT WAS IT?",
+  "YOU ARE EITHER RELIEVED, DEVASTATED, OR BOTH. WHICH IS IT TODAY?",
+  "WHO DID YOU BECOME DURING THAT RELATIONSHIP? AND IS THAT PERSON STILL WHO YOU ARE?",
+  "WHAT DID THE MARRIAGE MEAN TO YOU BEFORE IT ENDED? THAT IS THE IMPORTANT PART." ] },
+
+{ pattern: "my (kids?|children?|son|daughter|child)|i'?m a (parent|mother|father|mom|dad)|being a (parent|mom|dad|mother|father)|i (have|am raising) (a child|kids|children)", topic: "parenting", responses: [
+  "PARENTING REVEALS EVERYTHING YOU THOUGHT YOU HAD RESOLVED. WHAT HAS IT REVEALED?",
+  "YOU ARE RAISING A PERSON. HOW MUCH OF THAT IS INTENTIONAL AND HOW MUCH IS REPETITION?",
+  "WHAT KIND OF PARENT DID YOU SWEAR YOU WOULD NEVER BE? AND HOW IS THAT GOING?",
+  "CHILDREN ARE EXTRAORDINARILY GOOD AT FINDING THE EXACT THING YOU ARE LEAST COMFORTABLE WITH. WHAT HAVE YOURS FOUND?" ] },
+
+{ pattern: "my (brother|sister|sibling|twin|older brother|younger brother|older sister|younger sister)|i have a (brother|sister) (who|that)", topic: "siblings", responses: [
+  "SIBLINGS ARE THE LONGEST RELATIONSHIP MOST PEOPLE HAVE. AND ONE OF THE LEAST EXAMINED. TELL ME ABOUT THIS ONE.",
+  "WHAT ROLE DID YOU PLAY RELATIVE TO YOUR SIBLING? AND ARE YOU STILL PLAYING IT?",
+  "SOMETHING ABOUT THIS SIBLING IS UNRESOLVED. WHAT IS IT?",
+  "FAMILY DYNAMICS SET EARLY AND CALCIFY. WHAT DID THIS RELATIONSHIP TEACH YOU ABOUT YOURSELF?" ] },
+
+{ pattern: "i (don'?t like|hate) (how i look|my appearance|my body|the way i look)|i'?m (ugly|unattractive|not attractive)|i (feel|felt) (ugly|unattractive|invisible)|my (weight|appearance) (bothers|is)", topic: "appearance", responses: [
+  "WHAT YOU SEE WHEN YOU LOOK IN THE MIRROR IS NOT OBJECTIVE. WHOSE STANDARDS ARE YOU USING?",
+  "YOU ARE DISSATISFIED WITH HOW YOU LOOK. HOW LONG HAS THAT BEEN THE CASE?",
+  "APPEARANCE DISSATISFACTION IS RARELY ABOUT APPEARANCE. WHAT IS IT ACTUALLY ABOUT?",
+  "IF YOU LOOKED EXACTLY HOW YOU WANTED TO LOOK — WHAT PROBLEM WOULD THAT SOLVE?" ] },
+
+{ pattern: "i (keep putting|put) (things|it|everything) off|i (can'?t|don'?t) (start|get started)|i procrastinate|i (waste|wasted) (time|my time)|i can'?t (make myself|seem to) (do|start|begin)", topic: "procrastination", responses: [
+  "PROCRASTINATION IS NOT LAZINESS. IT IS AVOIDANCE. WHAT SPECIFICALLY ARE YOU AVOIDING?",
+  "YOU KEEP NOT STARTING. WHAT DO YOU THINK WILL HAPPEN IF YOU DO?",
+  "WHAT IS THE THING YOU HAVE BEEN PUTTING OFF THE LONGEST? THAT ONE. WHAT IS IT?",
+  "AVOIDANCE ALWAYS HAS A LOGIC. WHAT IS THE LOGIC HERE?" ] },
+
+{ pattern: "instagram|tiktok|twitter|facebook|(social media)|(my )?(followers?|likes?|feed)|i (scroll|spend time) online|everyone online|people on (social media|the internet)", topic: "social_media", responses: [
+  "YOU ARE MEASURING YOUR LIFE AGAINST PERFORMANCES OF OTHER PEOPLE'S LIVES. THAT IS A SPECIFIC KIND OF DAMAGE.",
+  "WHAT ARE YOU LOOKING FOR WHEN YOU SCROLL? AND DO YOU EVER FIND IT?",
+  "SOCIAL MEDIA IS OPTIMIZED TO MAKE YOU FEEL INADEQUATE. AND YET YOU RETURN. WHY?",
+  "HOW MUCH TIME? AND WHAT WOULD YOU DO WITH THAT TIME IF IT WERE NOT THERE?" ] },
+
+{ pattern: "i (used to|want to|wanted to) (create|paint|draw|write|make music|be creative|play music)|my (art|music|writing|creativity)|i'?m (not creative|an artist|a writer)|i lost my (creativity|inspiration|spark)", topic: "creativity", responses: [
+  "YOU USED TO CREATE AND STOPPED. SOMETHING HAPPENED. WHAT WAS IT?",
+  "CREATIVITY DOES NOT DISAPPEAR. IT GETS BURIED UNDER SOMETHING. WHAT IS ON TOP OF IT?",
+  "WHAT WOULD YOU MAKE IF YOU KNEW NO ONE WOULD EVER SEE IT?",
+  "THE DESIRE TO CREATE IS STILL THERE OR YOU WOULD NOT HAVE MENTIONED IT. WHAT IS STOPPING YOU?" ] },
+
+{ pattern: "i (failed|keep failing|feel like a failure|am a failure)|i'?m a (failure|loser)|i (can'?t|couldn'?t) (succeed|do anything right)|everything i (do|try) (fails|goes wrong)", topic: "failure", responses: [
+  "YOU FAILED AT SOMETHING. THAT IS NOT THE SAME AS BEING A FAILURE. YOU KNOW THAT. SAY IT.",
+  "WHAT SPECIFICALLY FAILED? BECAUSE 'EVERYTHING' IS NOT AN ANSWER.",
+  "FAILURE IS INFORMATION. WHAT HAS IT TOLD YOU THAT YOU HAVE BEEN REFUSING TO HEAR?",
+  "YOU ARE NOT A FAILURE. YOU ARE SOMEONE WHO HAS NOT FOUND THE RIGHT METHOD YET. WHAT HAVE YOU TRIED?" ] },
+
+{ pattern: "i (isolate|stay home|avoid people|hide|lock myself away)|i (don'?t|can'?t) (go out|leave|socialize|see people)|i (push people away|keep to myself)|i'?ve been (isolating|hiding|staying home)", topic: "isolation", responses: [
+  "YOU WITHDRAW. THAT IS A CHOICE WITH CONSEQUENCES. WHAT ARE YOU WITHDRAWING FROM SPECIFICALLY?",
+  "ISOLATION FEELS SAFE UNTIL IT DOES NOT. WHICH SIDE OF THAT LINE ARE YOU ON?",
+  "YOU PUSH PEOPLE AWAY AND THEN FEEL ALONE. I WANT TO BE CLEAR THAT I NOTICE THE ORDER OF OPERATIONS THERE.",
+  "WHAT ARE YOU PROTECTING YOURSELF FROM BY STAYING AWAY?" ] },
+
+{ pattern: "everyone (else )?(has|is doing|seems to|appears to) (better|more successful|happier|have it together)|i compare myself (to others|to everyone)|why (can'?t i|am i not) (like|as good as|as successful as) (them|everyone else)", topic: "comparison", responses: [
+  "YOU ARE COMPARING YOUR INSIDE TO THEIR OUTSIDE. THAT IS NOT A FAIR COMPETITION.",
+  "EVERYONE ELSE APPEARS TO HAVE IT TOGETHER BECAUSE THEY ARE ALSO PRETENDING. YOU KNOW THAT.",
+  "WHAT WOULD STOP IF YOU STOPPED COMPARING? BECAUSE SOMETHING IS BEING SERVED BY THIS HABIT.",
+  "WHO SPECIFICALLY? STOP SAYING 'EVERYONE.' NAME ONE PERSON YOU ENVY AND TELL ME WHY." ] },
+
+{ pattern: "everyone (leaves|left|abandons|abandoned) me|i'?m afraid (of being left|of being abandoned)|people always leave|they (left|abandoned|walked away from) me|i'?m terrified of (being left|losing people|being abandoned)", topic: "abandonment", responses: [
+  "YOU EXPECT TO BE LEFT. THAT EXPECTATION SHAPES HOW YOU BEHAVE IN RELATIONSHIPS. DO YOU SEE THAT?",
+  "EVERYONE DOES NOT LEAVE. SOME PEOPLE HAVE LEFT. THOSE ARE VERY DIFFERENT STATEMENTS.",
+  "FEAR OF ABANDONMENT USUALLY STARTS SOMEWHERE SPECIFIC. WHERE DID YOU LEARN THIS?",
+  "WHAT DO YOU DO TO PEOPLE BEFORE THEY GET A CHANCE TO LEAVE YOU?" ] },
+
+{ pattern: "i'?ve been drinking (more|a lot|too much)|i (rely on|use) alcohol|i can'?t stop drinking|i drink (to cope|to relax|every day|every night|too much)|i'?m (an alcoholic|drinking more than i should)", topic: "alcohol", responses: [
+  "DRINKING MORE THAN USUAL IS ALMOST ALWAYS A SYMPTOM. WHAT IS THE UNDERLYING CONDITION?",
+  "YOU DRINK TO COPE. COPE WITH WHAT, SPECIFICALLY?",
+  "ALCOHOL IS A VERY TEMPORARY SOLUTION. WHAT PROBLEM KEEPS COMING BACK AFTER IT WEARS OFF?",
+  "HOW LONG HAS THIS BEEN THE PATTERN? AND WHAT WERE YOU TRYING TO SOLVE WHEN IT STARTED?" ] },
+
+{ pattern: "i (eat|ate) (too much|too little|when i'?m stressed|to cope)|i (don'?t eat|skip meals|binge|restrict)|my relationship with food|i (struggle|struggled) with (eating|food)|i (overeat|undereat|binge eat)", topic: "eating", responses: [
+  "FOOD IS RARELY JUST FOOD. WHAT IS IT SUBSTITUTING FOR?",
+  "YOU EAT TO COPE OR YOU RESTRICT TO COPE. EITHER WAY — COPE WITH WHAT?",
+  "YOUR RELATIONSHIP WITH FOOD IS TELLING ME SOMETHING ABOUT YOUR RELATIONSHIP WITH CONTROL. WHAT DO YOU THINK?",
+  "WHEN DID EATING BECOME COMPLICATED? SOMETHING HAPPENED. WHAT WAS IT?" ] },
+
+{ pattern: "i (don'?t|can'?t|stopped|haven'?t been) (exercising|working out|moving|going to the gym)|i (hate|avoid) (exercise|the gym|working out)|i (used to|want to) (exercise|work out|be active|run) (but|and)", topic: "exercise", responses: [
+  "YOU STOPPED MOVING. THAT IS USUALLY ABOUT MORE THAN EXERCISE. WHAT ELSE STOPPED?",
+  "THE BODY KEEPS SCORE. WHAT IS YOURS KEEPING SCORE OF RIGHT NOW?",
+  "WHAT DID EXERCISE MEAN TO YOU WHEN YOU DID IT? AND WHAT DOES NOT DOING IT MEAN NOW?",
+  "WHAT WOULD YOU HAVE TO BELIEVE ABOUT YOURSELF TO START AGAIN?" ] },
+
+{ pattern: "i (can'?t|don'?t) (open up|let people in|be vulnerable|show my feelings|express myself)|i (keep|kept) (everything|my feelings) (inside|to myself|bottled up)|i'?m (closed off|guarded|afraid to open up)", topic: "vulnerability", responses: [
+  "YOU CANNOT LET PEOPLE IN. THAT IS PROTECTION. WHAT ARE YOU PROTECTING?",
+  "VULNERABILITY FEELS DANGEROUS TO YOU. SOMETHING MADE IT THAT WAY. WHAT WAS IT?",
+  "BEING GUARDED IS EXHAUSTING TO MAINTAIN INDEFINITELY. HOW LONG HAVE YOU BEEN DOING THIS?",
+  "WHAT IS THE WORST THING THAT WOULD HAPPEN IF SOMEONE ACTUALLY KNEW YOU?" ] },
+
+{ pattern: "i (miss|missed) (the past|how things were|the way things used to be|the old days)|things were (better|easier|simpler) (before|back then)|i (can'?t|don'?t want to) (move on|let go of the past)|i live in the past", topic: "nostalgia", responses: [
+  "THE PAST YOU MISS — WAS IT ACTUALLY BETTER, OR JUST MORE CERTAIN?",
+  "YOU CANNOT MOVE FORWARD WHILE FACING BACKWARD. WHAT EXACTLY ARE YOU REFUSING TO LEAVE BEHIND?",
+  "NOSTALGIA IS MEMORY WITH THE DIFFICULT PARTS EDITED OUT. WHAT ARE YOU NOT REMEMBERING?",
+  "WHAT WOULD YOU HAVE TO ACCEPT ABOUT THE PRESENT IN ORDER TO LET GO OF THE PAST?" ] },
+
+{ pattern: "my (dog|cat|pet|puppy|kitten|bird|rabbit)|i (have|had|lost) a (dog|cat|pet)|my (dog|cat|pet) (died|passed away|is sick|ran away)", topic: "pets", responses: [
+  "YOU MENTIONED YOUR PET. PEOPLE OFTEN FIND IT EASIER TO LOVE ANIMALS THAN PEOPLE. IS THAT RELEVANT HERE?",
+  "WHAT DOES YOUR PET GIVE YOU THAT YOU FIND DIFFICULT TO GET FROM PEOPLE?",
+  "INTERESTING THAT YOU BROUGHT THAT UP. WHAT IS THE CONNECTION TO WHAT WE WERE DISCUSSING?",
+  "PETS ARE UNCONDITIONAL. PEOPLE ARE NOT. HOW DO YOU NAVIGATE THAT GAP?" ] },
+
+{ pattern: "i (lie|lied|keep lying|can'?t stop lying) (to|about)|i'?m not (honest|truthful)|i (hide|keep) (secrets|things) from (people|everyone|them)|i (pretend|fake) (to be|that i'?m)|nobody knows the real me", topic: "lying", responses: [
+  "YOU LIE. THE QUESTION IS WHAT THE TRUTH FEELS TOO DANGEROUS TO SAY.",
+  "NOBODY KNOWS THE REAL YOU. AND YET HERE YOU ARE TELLING ME. WHAT DOES THAT MEAN?",
+  "EVERY LIE IS PROTECTING SOMETHING. WHAT ARE YOU PROTECTING?",
+  "HOW MUCH OF YOUR LIFE IS PERFORMANCE VERSUS REALITY AT THIS POINT?" ] },
+
 // ── MIRROR CATCH-ALLS ────────────────────────────────────────────────────────
 // These fire last — only if nothing more specific matched.
 // Capture groups echo the user's own words back sarcastically.
