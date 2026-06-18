@@ -208,9 +208,10 @@ export default {
     }
 
     // ── NORMAL RESPONSE MODE ────────────────────────────────────────────────
-    const { userInput, patientName, revealedTopics, recentHistory, dsmDiagnosis, dsmEvidence } = body;
+    const { userInput, patientName, revealedTopics, recentHistory, dsmDiagnosis, dsmEvidence, currentDate } = body;
 
     let contextNote = '';
+    if (currentDate) contextNote += `Today is ${currentDate}. If you reference a day or date, use this. `;
     if (patientName) contextNote += `The patient's name is ${patientName}. Use it occasionally for effect. `;
     if (revealedTopics?.length) {
       contextNote += `The patient has already revealed the following topics: ${revealedTopics.join(', ')}. Reference these when it adds impact. `;
