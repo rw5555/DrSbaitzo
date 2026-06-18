@@ -473,11 +473,11 @@ patterns: [
   "WHAT IS THE THING ON THAT LIST THAT IS KEEPING YOU UP AT NIGHT?",
   "UNLOAD IT. WE HAVE TIME. WHAT COMES FIRST?" ] },
 
-{ pattern: "my name is (.+)|i am (.+)|call me (.+)|i'm (.+)|im (.+)", topic: "identity", storeName: true, responses: [
-  "PLEASED TO MEET YOU. I HAVE FILED THAT AWAY. NOW — WHAT BRINGS YOU HERE?",
+{ pattern: "my name is (.+)|i am (.+)|call me (.+)|i'm (.+)|im (.+)", topic: "identity", storeName: true, useAI: 0.40, responses: [
   "NOTED, {NAME}. WHAT IS ON YOUR MIND?",
   "I SHALL CALL YOU {NAME}. YOU MAY CALL ME DR. SBAITZO. WHAT WOULD YOU LIKE TO DISCUSS?",
-  "WONDERFUL. NOW THEN, {NAME}, WHAT SEEMS TO BE THE MATTER?" ] },
+  "WONDERFUL. NOW THEN, {NAME}, WHAT SEEMS TO BE THE MATTER?",
+  "{NAME}. FILED. NOW — WHY ARE YOU HERE?" ] },
 
 { pattern: "who am i|what am i|i don'?t know who i am|lost sense of (self|identity|myself)", topic: "identity", responses: [
   "A CLASSIC QUESTION. WHAT PARTS OF YOURSELF DO YOU FEEL CERTAIN ABOUT?",
