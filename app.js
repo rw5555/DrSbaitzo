@@ -656,6 +656,7 @@ async function callAI(userInput) {
     ]);
     if (!resp.ok) return null;
     const data = await resp.json();
+    if (!data.text) console.log('[AI null]', JSON.stringify(data));
     const aiText = data.text?.trim().toUpperCase();
     return aiText || null;
   } catch (e) {
