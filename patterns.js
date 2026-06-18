@@ -474,7 +474,7 @@ patterns: [
   "WHAT IS THE THING ON THAT LIST THAT IS KEEPING YOU UP AT NIGHT?",
   "UNLOAD IT. WE HAVE TIME. WHAT COMES FIRST?" ] },
 
-{ pattern: "^my name is (.+)|^i am (.+)|^call me (.+)|^i'?m (.+)|^im (.+)", topic: "identity", storeName: true, useAI: 0.40, responses: [
+{ pattern: "^my name is (.+)|^call me (.+)", topic: "identity", storeName: true, useAI: 0.40, responses: [
   "NOTED, {NAME}. WHAT IS ON YOUR MIND?",
   "I SHALL CALL YOU {NAME}. YOU MAY CALL ME DR. SBAITZO. WHAT WOULD YOU LIKE TO DISCUSS?",
   "{NAME}. NOTED. NOW — WHAT EXACTLY MADE YOU COME HERE TODAY?",
@@ -1557,13 +1557,13 @@ patterns: [
   "THE NEWS WILL STILL BE THERE TOMORROW. WHAT WOULD YOU DO WITH THE TIME IF YOU STOPPED?" ] },
 
 // ── PETS ──────────────────────────────────────────────
-{ pattern: "my (dog|cat|pet|fish|bird|rabbit|hamster|animal)", topic: "pets", responses: [
+{ pattern: "my (dogs?|cats?|pets?|fish(es)?|birds?|rabbits?|hamsters?|animals?|goldfish(es)?|turtle|turtles?|snake|snakes?)", topic: "pets", responses: [
   "TELL ME ABOUT YOUR PET. WHAT ARE THEY LIKE?",
   "PETS HAVE A WAY OF BEING THE MOST UNCOMPLICATED RELATIONSHIP IN A PERSON'S LIFE. IS THAT TRUE FOR YOURS?",
   "WHAT DOES YOUR PET DO FOR YOUR MENTAL STATE? I SUSPECT THE ANSWER IS SIGNIFICANT.",
   "I FIND THAT PEOPLE OFTEN TELL THEIR PETS THINGS THEY TELL NO ONE ELSE. WHAT DOES YOURS KNOW?" ] },
 
-{ pattern: "my (dog|cat|pet) (died|passed away|is sick|is old|is dying)", topic: "pets", responses: [
+{ pattern: "my (dogs?|cats?|pets?|fish|bird|rabbit|hamster|animal) (died|passed away|is sick|are sick|is old|is dying|are dying)", topic: "pets", responses: [
   "I AM SORRY TO HEAR THAT. THE LOSS OF A PET IS A REAL AND SERIOUS GRIEF.",
   "HOW LONG HAVE YOU HAD THEM? WHAT HAS THAT RELATIONSHIP MEANT TO YOU?",
   "GRIEF FOR AN ANIMAL IS AS VALID AS ANY OTHER GRIEF. DO NOT LET ANYONE MINIMIZE THAT FOR YOU." ] },
@@ -1892,13 +1892,13 @@ patterns: [
   "NOT BEING CHOSEN BY ONE PERSON OR GROUP IS NOT A VERDICT ON YOU. THOUGH I NOTE YOU ARE TREATING IT AS ONE.",
   "WHAT DID YOU DECIDE ABOUT YOURSELF THE MOMENT IT HAPPENED?" ] },
 
-{ pattern: "i (can'?t|don'?t) trust (anyone|people|them|him|her|others)|i have trust issues|people always (let me down|disappoint me|betray me)|i'?ve been (betrayed|lied to|let down)", topic: "trust", responses: [
+{ pattern: "i (can'?t|don'?t) trust (anyone|people|them|him|her|others)|i have trust issues?|people always (let me down|disappoint me|betray me)|i'?ve been (betrayed|lied to|let down|hurt before)", topic: "trust", responses: [
   "YOU STOPPED TRUSTING PEOPLE. SOMETHING SPECIFIC CAUSED THAT. WHAT WAS IT?",
   "DISTRUST IS LEARNED. YOU WERE NOT BORN THIS WAY. WHO TAUGHT YOU?",
   "NOT TRUSTING ANYONE IS EXHAUSTING TO MAINTAIN. HOW LONG HAVE YOU BEEN DOING THIS?",
   "THE QUESTION IS NOT WHETHER PEOPLE ARE TRUSTWORTHY. THE QUESTION IS WHAT IT COSTS YOU TO ASSUME THEY ARE NOT." ] },
 
-{ pattern: "i (can'?t|don'?t know how to) say no|people (walk all over|take advantage of|use) me|i (have no|don'?t have|lack) boundaries|i let people (walk over|take advantage)", topic: "boundaries", responses: [
+{ pattern: "i (can'?t|don'?t know how to) say no|people (walk all over|take advantage of|use|walk over|step on) me|i (have no|don'?t have|lack) boundaries?|i let people (walk over|take advantage|use me)", topic: "boundaries", responses: [
   "YOU CANNOT SAY NO. THAT IS NOT A PERSONALITY TRAIT. THAT IS A SURVIVAL STRATEGY THAT OUTLIVED ITS USEFULNESS.",
   "WHO TAUGHT YOU THAT SAYING NO WAS DANGEROUS?",
   "PEOPLE WILL TAKE WHAT YOU OFFER. YOU HAVE BEEN OFFERING EVERYTHING. WHAT DO YOU GET IN RETURN?",
@@ -1928,13 +1928,13 @@ patterns: [
   "WHO DID YOU BECOME DURING THAT RELATIONSHIP? AND IS THAT PERSON STILL WHO YOU ARE?",
   "WHAT DID THE MARRIAGE MEAN TO YOU BEFORE IT ENDED? THAT IS THE IMPORTANT PART." ] },
 
-{ pattern: "my (kids?|children?|son|daughter|child)|i'?m a (parent|mother|father|mom|dad)|being a (parent|mom|dad|mother|father)|i (have|am raising) (a child|kids|children)", topic: "parenting", responses: [
+{ pattern: "my (kids?|children?|sons?|daughters?|child(ren)?)|i'?m a (parent|mother|father|mom|dad|single (mom|dad|parent))|being a (parent|mom|dad|mother|father)|i (have|am raising) (a child|kids|children|a son|a daughter)", topic: "parenting", responses: [
   "PARENTING REVEALS EVERYTHING YOU THOUGHT YOU HAD RESOLVED. WHAT HAS IT REVEALED?",
   "YOU ARE RAISING A PERSON. HOW MUCH OF THAT IS INTENTIONAL AND HOW MUCH IS REPETITION?",
   "WHAT KIND OF PARENT DID YOU SWEAR YOU WOULD NEVER BE? AND HOW IS THAT GOING?",
   "CHILDREN ARE EXTRAORDINARILY GOOD AT FINDING THE EXACT THING YOU ARE LEAST COMFORTABLE WITH. WHAT HAVE YOURS FOUND?" ] },
 
-{ pattern: "my (brother|sister|sibling|twin|older brother|younger brother|older sister|younger sister)|i have a (brother|sister) (who|that)", topic: "siblings", responses: [
+{ pattern: "my (brothers?|sisters?|siblings?|twin|older brother|younger brother|older sister|younger sister)|i have (a |an? )?(brothers?|sisters?|siblings?) (who|that)", topic: "siblings", responses: [
   "SIBLINGS ARE THE LONGEST RELATIONSHIP MOST PEOPLE HAVE. AND ONE OF THE LEAST EXAMINED. TELL ME ABOUT THIS ONE.",
   "WHAT ROLE DID YOU PLAY RELATIVE TO YOUR SIBLING? AND ARE YOU STILL PLAYING IT?",
   "SOMETHING ABOUT THIS SIBLING IS UNRESOLVED. WHAT IS IT?",
@@ -1970,7 +1970,7 @@ patterns: [
   "FAILURE IS INFORMATION. WHAT HAS IT TOLD YOU THAT YOU HAVE BEEN REFUSING TO HEAR?",
   "YOU ARE NOT A FAILURE. YOU ARE SOMEONE WHO HAS NOT FOUND THE RIGHT METHOD YET. WHAT HAVE YOU TRIED?" ] },
 
-{ pattern: "i (isolate|stay home|avoid people|hide|lock myself away)|i (don'?t|can'?t) (go out|leave|socialize|see people)|i (push people away|keep to myself)|i'?ve been (isolating|hiding|staying home)", topic: "isolation", responses: [
+{ pattern: "i (isolate|stay home|avoid people|hide|lock myself away|withdraw)|i (don'?t|can'?t) (go out|leave|socialize|see people|be around people)|i (push people away|keep to myself|avoid everyone)|i'?ve been (isolating|hiding|staying home|withdrawing)|i (feel|am) (isolated|alone|cut off|disconnected from everyone)", topic: "isolation", responses: [
   "YOU WITHDRAW. THAT IS A CHOICE WITH CONSEQUENCES. WHAT ARE YOU WITHDRAWING FROM SPECIFICALLY?",
   "ISOLATION FEELS SAFE UNTIL IT DOES NOT. WHICH SIDE OF THAT LINE ARE YOU ON?",
   "YOU PUSH PEOPLE AWAY AND THEN FEEL ALONE. I WANT TO BE CLEAR THAT I NOTICE THE ORDER OF OPERATIONS THERE.",
@@ -1982,25 +1982,25 @@ patterns: [
   "WHAT WOULD STOP IF YOU STOPPED COMPARING? BECAUSE SOMETHING IS BEING SERVED BY THIS HABIT.",
   "WHO SPECIFICALLY? STOP SAYING 'EVERYONE.' NAME ONE PERSON YOU ENVY AND TELL ME WHY." ] },
 
-{ pattern: "everyone (leaves|left|abandons|abandoned) me|i'?m afraid (of being left|of being abandoned)|people always leave|they (left|abandoned|walked away from) me|i'?m terrified of (being left|losing people|being abandoned)", topic: "abandonment", responses: [
+{ pattern: "everyone (leaves|left|abandons|abandoned) me|i'?m afraid (of being left|of being abandoned|of people leaving)|people always (leave|go|abandon me)|they (left|abandoned|walked away from|gave up on) me|i'?m terrified of (being left|losing people|being abandoned|being alone)|i (always get|keep getting) (left|abandoned|hurt)", topic: "abandonment", responses: [
   "YOU EXPECT TO BE LEFT. THAT EXPECTATION SHAPES HOW YOU BEHAVE IN RELATIONSHIPS. DO YOU SEE THAT?",
   "EVERYONE DOES NOT LEAVE. SOME PEOPLE HAVE LEFT. THOSE ARE VERY DIFFERENT STATEMENTS.",
   "FEAR OF ABANDONMENT USUALLY STARTS SOMEWHERE SPECIFIC. WHERE DID YOU LEARN THIS?",
   "WHAT DO YOU DO TO PEOPLE BEFORE THEY GET A CHANCE TO LEAVE YOU?" ] },
 
-{ pattern: "i'?ve been drinking (more|a lot|too much)|i (rely on|use) alcohol|i can'?t stop drinking|i drink (to cope|to relax|every day|every night|too much)|i'?m (an alcoholic|drinking more than i should)", topic: "alcohol", responses: [
+{ pattern: "i'?ve been drinking (more|a lot|too much)|i (rely on|use) alcohol|i can'?t stop drinking|i drink (to cope|to relax|every day|every night|too much|when i'?m stressed?)|i'?m (an alcoholic|drinking more than i should)|i (drink|have been drinking) (too much|a lot|more lately)", topic: "alcohol", responses: [
   "DRINKING MORE THAN USUAL IS ALMOST ALWAYS A SYMPTOM. WHAT IS THE UNDERLYING CONDITION?",
   "YOU DRINK TO COPE. COPE WITH WHAT, SPECIFICALLY?",
   "ALCOHOL IS A VERY TEMPORARY SOLUTION. WHAT PROBLEM KEEPS COMING BACK AFTER IT WEARS OFF?",
   "HOW LONG HAS THIS BEEN THE PATTERN? AND WHAT WERE YOU TRYING TO SOLVE WHEN IT STARTED?" ] },
 
-{ pattern: "i (eat|ate) (too much|too little|when i'?m stressed|to cope)|i (don'?t eat|skip meals|binge|restrict)|my relationship with food|i (struggle|struggled) with (eating|food)|i (overeat|undereat|binge eat)", topic: "eating", responses: [
+{ pattern: "i (eat|ate|keep eating) (too much|too little|when i'?m stressed?|to cope|my feelings?)|i (don'?t eat|skip meals?|binge|restrict|stress eat)|my relationship with food|i (struggle|struggled) with (eating|food)|i (overeat|undereat|binge eat)|i (can'?t stop eating|eat when i'?m (sad|bored|stressed?))", topic: "eating", responses: [
   "FOOD IS RARELY JUST FOOD. WHAT IS IT SUBSTITUTING FOR?",
   "YOU EAT TO COPE OR YOU RESTRICT TO COPE. EITHER WAY — COPE WITH WHAT?",
   "YOUR RELATIONSHIP WITH FOOD IS TELLING ME SOMETHING ABOUT YOUR RELATIONSHIP WITH CONTROL. WHAT DO YOU THINK?",
   "WHEN DID EATING BECOME COMPLICATED? SOMETHING HAPPENED. WHAT WAS IT?" ] },
 
-{ pattern: "i (don'?t|can'?t|stopped|haven'?t been) (exercising|working out|moving|going to the gym)|i (hate|avoid) (exercise|the gym|working out)|i (used to|want to) (exercise|work out|be active|run) (but|and)", topic: "exercise", responses: [
+{ pattern: "i (don'?t|can'?t|stopped|haven'?t been) (exercising|working out|moving|going to the gym|running)|i (hate|avoid) (exercise|the gym|working out|running)|i (used to|want to|wanted to) (exercise|work out|be active|run|go to the gym) (but|and)|i (never|don'?t) (exercise|work out|move enough|stay active)", topic: "exercise", responses: [
   "YOU STOPPED MOVING. THAT IS USUALLY ABOUT MORE THAN EXERCISE. WHAT ELSE STOPPED?",
   "THE BODY KEEPS SCORE. WHAT IS YOURS KEEPING SCORE OF RIGHT NOW?",
   "WHAT DID EXERCISE MEAN TO YOU WHEN YOU DID IT? AND WHAT DOES NOT DOING IT MEAN NOW?",
@@ -2018,13 +2018,13 @@ patterns: [
   "NOSTALGIA IS MEMORY WITH THE DIFFICULT PARTS EDITED OUT. WHAT ARE YOU NOT REMEMBERING?",
   "WHAT WOULD YOU HAVE TO ACCEPT ABOUT THE PRESENT IN ORDER TO LET GO OF THE PAST?" ] },
 
-{ pattern: "my (dog|cat|pet|puppy|kitten|bird|rabbit)|i (have|had|lost) a (dog|cat|pet)|my (dog|cat|pet) (died|passed away|is sick|ran away)", topic: "pets", responses: [
+{ pattern: "my (dogs?|cats?|pets?|puppies|puppy|kittens?|birds?|rabbits?|goldfish|fish|hamsters?)|i (have|had|lost) (a |some )?(dogs?|cats?|pets?|fish|birds?|rabbits?)|my (dogs?|cats?|pets?) (died|passed away|is sick|are sick|ran away)", topic: "pets", responses: [
   "YOU MENTIONED YOUR PET. PEOPLE OFTEN FIND IT EASIER TO LOVE ANIMALS THAN PEOPLE. IS THAT RELEVANT HERE?",
   "WHAT DOES YOUR PET GIVE YOU THAT YOU FIND DIFFICULT TO GET FROM PEOPLE?",
   "INTERESTING THAT YOU BROUGHT THAT UP. WHAT IS THE CONNECTION TO WHAT WE WERE DISCUSSING?",
   "PETS ARE UNCONDITIONAL. PEOPLE ARE NOT. HOW DO YOU NAVIGATE THAT GAP?" ] },
 
-{ pattern: "i (lie|lied|keep lying|can'?t stop lying) (to|about)|i'?m not (honest|truthful)|i (hide|keep) (secrets|things) from (people|everyone|them)|i (pretend|fake) (to be|that i'?m)|nobody knows the real me", topic: "lying", responses: [
+{ pattern: "i (lie|lied|keep lying|can'?t stop lying|always lie) (to|about)?|i'?m not (honest|truthful|a honest person)|i (hide|keep) (secrets?|things?) from (people|everyone|them|my family|my friends?)|i (pretend|fake) (to be|that i'?m|that i am)|nobody knows the real me|i (wear|put on) a (mask|front|facade)", topic: "lying", responses: [
   "YOU LIE. THE QUESTION IS WHAT THE TRUTH FEELS TOO DANGEROUS TO SAY.",
   "NOBODY KNOWS THE REAL YOU. AND YET HERE YOU ARE TELLING ME. WHAT DOES THAT MEAN?",
   "EVERY LIE IS PROTECTING SOMETHING. WHAT ARE YOU PROTECTING?",

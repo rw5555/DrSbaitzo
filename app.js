@@ -1048,7 +1048,7 @@ async function respond(raw) {
   }
 
   // DSM diagnosis: fires once at turn 35+ when at least 4 distinct topics revealed
-  if (!S.dsmFired && S.turn >= 35 && S.topics.size >= 4) {
+  if (!S.dsmFired && S.turn >= 35 && S.memory.length >= 4) {
     S.dsmFired = true;
     const diagText = await callDiagnosis();
     if (diagText) {
