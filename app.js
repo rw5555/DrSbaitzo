@@ -785,11 +785,8 @@ async function deliverSessionSummary() {
 
   const lines = [
     'LET ME PAUSE FOR A MOMENT.',
-    '',
     'IN THE TIME WE HAVE BEEN TALKING, YOU HAVE REVEALED QUITE A BIT.',
-    '',
     'YOU HAVE MENTIONED: ' + numbered,
-    '',
     'I WANT YOU TO CONSIDER WHAT THAT LIST SAYS ABOUT YOU.',
     'MOST PEOPLE DO NOT NOTICE WHAT THEY VOLUNTEER.',
   ];
