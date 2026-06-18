@@ -213,7 +213,9 @@ function fillVars(str, match) {
   let out = str;
   if (match) {
     for (let i = 1; i < match.length; i++) {
-      const cap = match[i] ? reflect(match[i].trim()).toUpperCase() : '';
+      const raw = match[i] ? match[i].trim() : '';
+      // Only pronoun-reflect short captures (≤3 words); longer phrases mangle grammar
+      const cap = (raw && raw.split(/\s+/).length <= 3) ? reflect(raw).toUpperCase() : raw.toUpperCase();
       out = out.replace(new RegExp('\\$' + i, 'g'), cap);
     }
   }
