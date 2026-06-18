@@ -279,8 +279,9 @@ export default {
 
     const data = await geminiResp.json();
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
+    const _debug = { finish: data.candidates?.[0]?.finishReason, blocked: data.promptFeedback?.blockReason };
 
-    return new Response(JSON.stringify({ text }), {
+    return new Response(JSON.stringify({ text, _debug }), {
       headers: { ...CORS, 'Content-Type': 'application/json' },
     });
   },
