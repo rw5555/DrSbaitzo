@@ -990,6 +990,21 @@ async function respond(raw) {
     addLine('>', 'user');
     await typeAndSpeak(r, 'dr', 14);
     addBlank();
+    // Still check for diagnosis even on empty input
+    if (!S.dsmFired && S.turn >= 35 && S.memory.length >= 4) {
+      S.dsmFired = true;
+      const diagText = await callDiagnosis();
+      if (diagText) {
+        addBlank();
+        await delay(1200);
+        await typeAndSpeak('AFTER CAREFUL CONSIDERATION OF EVERYTHING YOU HAVE TOLD ME, I AM PREPARED TO MAKE A FORMAL ASSESSMENT.', 'dr', 14);
+        await delay(800);
+        await typeAndSpeak(diagText, 'dr', 14);
+        addBlank();
+      } else {
+        S.dsmFired = false;
+      }
+    }
     $inputLine.style.display = '';
     $output.scrollTop = $output.scrollHeight;
     S.busy = false;
