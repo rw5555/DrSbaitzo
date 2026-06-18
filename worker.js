@@ -136,7 +136,7 @@ const SAFETY = [
 
 async function callGemini(env, systemPrompt, contents, generationConfig) {
   return fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-8b:generateContent?key=${env.GEMINI_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${env.GEMINI_KEY}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -188,6 +188,7 @@ export default {
           temperature:      0.85,
           maxOutputTokens:  400,
           responseMimeType: 'application/json',
+          thinkingConfig:   { thinkingBudget: 0 },
         });
       } catch {
         return new Response(JSON.stringify({ text: null, diagnosis: null, evidence: [] }), {
@@ -196,7 +197,8 @@ export default {
       }
 
       const raw = await geminiResp.json();
-      const jsonStr = raw.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '{}';
+      const rawParts = raw.candidates?.[0]?.content?.parts ?? [];
+      const jsonStr = (rawParts.find(p => !p.thought)?.text ?? rawParts[0]?.text ?? '').trim() || '{}';
       let parsed = {};
       try { parsed = JSON.parse(jsonStr); } catch { parsed = {}; }
 
@@ -230,8 +232,9 @@ export default {
     try {
       geminiResp = await callGemini(env, fullPrompt, contents, {
         temperature:     0.92,
-        maxOutputTokens: 120,
+        maxOutputTokens: 200,
         stopSequences:   ['\n\n'],
+        thinkingConfig:  { thinkingBudget: 0 },
       });
     } catch {
       return new Response(JSON.stringify({ text: null, error: 'upstream_failed' }), {
@@ -240,9 +243,10 @@ export default {
     }
 
     const data = await geminiResp.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
+    const parts = data.candidates?.[0]?.content?.parts ?? [];
+    const text = (parts.find(p => !p.thought)?.text ?? parts[0]?.text ?? '').trim() || null;
 
-    return new Response(JSON.stringify({ text, _s: geminiResp.status, _c: data.candidates?.length ?? 'undef', _e: data.error?.code ?? null, _k: env.GEMINI_KEY ? env.GEMINI_KEY.slice(-4) : 'MISSING' }), {
+    return new Response(JSON.stringify({ text, _s: geminiResp.status, _e: data.error?.code ?? null }), {
       headers: { ...CORS, 'Content-Type': 'application/json' },
     });
   },
