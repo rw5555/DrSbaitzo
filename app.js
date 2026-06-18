@@ -1036,7 +1036,7 @@ async function respond(raw) {
     await typeAndSpeak(r, 'dr', 14);
     addBlank();
     // Still check for diagnosis even on empty input
-    if (!S.dsmFired && S.turn >= 35 && S.memory.length >= 2) {
+    if (!S.dsmFired && S.turn >= 20 && S.memory.length >= 2) {
       S.dsmFired = true;
       const diagText = await callDiagnosis();
       if (diagText) {
@@ -1122,14 +1122,14 @@ async function respond(raw) {
     await typeAndSpeak(weaponText, 'dr', 14);
   }
 
-  // Session summary: fires once at turn 20 if enough topics have been revealed
-  if (!S.summaryFired && S.turn >= 20 && S.memory.length >= 2) {
+  // Session summary: fires once at turn 12 if enough topics have been revealed
+  if (!S.summaryFired && S.turn >= 12 && S.memory.length >= 2) {
     addBlank();
     await deliverSessionSummary();
   }
 
   // DSM diagnosis: fires once at turn 35+ when at least 4 distinct topics revealed
-  if (!S.dsmFired && S.turn >= 35 && S.memory.length >= 2) {
+  if (!S.dsmFired && S.turn >= 20 && S.memory.length >= 2) {
     S.dsmFired = true;
     const diagText = await callDiagnosis();
     if (diagText) {
