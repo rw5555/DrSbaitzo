@@ -637,6 +637,7 @@ function pickExpertiseClaim(level) {
 async function callAI(userInput) {
   if (!WORKER_URL || WORKER_URL === 'REPLACE_WITH_YOUR_WORKER_URL') return null;
   try {
+    console.log('[callAI] firing for:', userInput);
     const revealedTopics = [...new Map(S.memory.map(m => [m.topic, m])).values()].map(m => m.label);
     const resp = await Promise.race([
       fetch(WORKER_URL, {
@@ -654,11 +655,13 @@ async function callAI(userInput) {
       }),
       new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 5000)),
     ]);
+    console.log('[callAI] resp status:', resp.status);
     if (!resp.ok) return null;
     const data = await resp.json();
     const aiText = data.text?.trim().toUpperCase();
     return aiText || null;
-  } catch {
+  } catch (e) {
+    console.log('[callAI] error:', e);
     return null;
   }
 }
@@ -693,6 +696,7 @@ async function callDiagnosis() {
     return null;
   }
 }
+
 
 function matchInput(raw) {
   const input = raw.trim().toLowerCase();
@@ -1020,6 +1024,7 @@ async function respond(raw) {
 
   // If tone fallback flagged AI, try the Worker — use tone fallback if AI fails/times out
   let text = matchedText;
+  console.log('[useAI]', useAI, '| input:', input);
   if (useAI) {
     const aiText = await callAI(input);
     if (aiText) {
