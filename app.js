@@ -681,10 +681,9 @@ async function callDiagnosis() {
       }),
       new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 10000)),
     ]);
-    if (!resp.ok) return null;
     const data = await resp.json();
-    console.log('[diagnosis] raw response:', JSON.stringify(data));
-    if (!data.text || !data.diagnosis) return null;
+    console.log('[diagnosis]', resp.status, JSON.stringify(data));
+    if (!resp.ok || !data.text || !data.diagnosis) return null;
     S.dsmDiagnosis = data.diagnosis;
     S.dsmEvidence  = data.evidence || [];
     return data.text.trim().toUpperCase();
