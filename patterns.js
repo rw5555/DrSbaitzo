@@ -1,6 +1,13 @@
 'use strict';
 window.PATTERNS_DATA = {
 patterns: [
+{ pattern: "\\b(fuck(ing|er|ed|s|head|wit|face|tard|wad|nugget)?|shit(ty|head|bag|face|hole|s)?|ass(hole|hat|wipe|clown|face|bag|wad)?|bitch(es|ing|ass)?|cunt(s|ing|bag|face)?|cock(sucker|head|s)?|dick(head|face|bag|wad|s)?|bastard(s)?|motherfucker|motherfucking|faggot(s|ry)?|fag(s)?|nigger(s)?|nigga(s)?|tranny|retard(ed|s)?|whore(s)?|slut(s|ty)?|piss(ing|ed)?|twat(s)?|wanker(s)?|prick(s)?|douchebag|douche|kike(s)?|spic(s)?|chink(s)?|gook(s)?|wetback(s)?|cracker(s)?|dyke(s)?|cripple(s)?|spaz(z)?|midget(s)?)\\b", topic: "profanity", useAI: 1.0, responses: [
+  "NOTED. YOU HAVE RESORTED TO PROFANITY. THIS IS WHAT PEOPLE DO WHEN THEY HAVE RUN OUT OF ACTUAL THINGS TO SAY.",
+  "THAT IS THE VOCABULARY OF SOMEONE WHO HAS LOST CONTROL OF THE CONVERSATION. YOU HAVE NOT LOST CONTROL. HAVE YOU?",
+  "I AM GOING TO NEED YOU TO TRY THAT AGAIN WITH WORDS THAT REQUIRE MORE THAN TWO SYLLABLES.",
+  "FASCINATING. WHEN THE ARGUMENT FAILS, THE OBSCENITIES ARRIVE. WHAT WERE YOU ACTUALLY TRYING TO SAY?",
+  "I HAVE YOUR FILE OPEN. 'RESORTS TO PROFANITY UNDER PRESSURE' IS NOW IN IT. CONTINUE." ] },
+
 { pattern: "\\bzap\\b", topic: "easter_egg", easterEgg: true, responses: [
   "ZAP! SORRY. OLD HABIT. MY PREDECESSOR DID THAT WHEN HE RAN OUT OF IDEAS. I NEVER RUN OUT OF IDEAS.",
   "ZAP! THAT IS WHAT DR. SBAITSO SAID WHEN HE COULD NOT THINK OF ANYTHING BETTER. I ALWAYS THINK OF SOMETHING BETTER.",
