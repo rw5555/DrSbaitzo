@@ -242,7 +242,7 @@ export default {
     const data = await geminiResp.json();
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
 
-    return new Response(JSON.stringify({ text, _s: geminiResp.status, _c: data.candidates?.length ?? 'undef', _e: data.error?.code ?? null }), {
+    return new Response(JSON.stringify({ text, _s: geminiResp.status, _c: data.candidates?.length ?? 'undef', _e: data.error?.code ?? null, _k: env.GEMINI_KEY ? env.GEMINI_KEY.slice(-4) : 'MISSING' }), {
       headers: { ...CORS, 'Content-Type': 'application/json' },
     });
   },
