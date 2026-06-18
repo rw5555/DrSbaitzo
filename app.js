@@ -116,6 +116,7 @@ function prepareText(text) {
     .replace(/€(\d+(?:\.\d+)?)/g,   (_, n) => n + ' euros')
     .replace(/\bmisery\b/gi, 'mizzery')
     .replace(/\bmiserable\b/gi, 'mizzeruble')
+    .replace(/\baura\b/gi, 'owra')
     .replace(/sbaitzo/gi, 'spaytso')
     .replace(/sbaitso/gi, 'spaytso')
     .replace(/rw5555/gi,  'r w fifty-five fifty-five')
