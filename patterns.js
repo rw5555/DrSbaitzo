@@ -2048,6 +2048,240 @@ patterns: [
   "EVERY LIE IS PROTECTING SOMETHING. WHAT ARE YOU PROTECTING?",
   "HOW MUCH OF YOUR LIFE IS PERFORMANCE VERSUS REALITY AT THIS POINT?" ] },
 
+// ── DATING ───────────────────────────────────────────────────────────────
+{ pattern: "i'?m (on|using|tried|downloaded|deleted|back on|off) (tinder|hinge|bumble|dating apps?|match|okcupid|grindr)|i'?m (dating|not dating|done dating|trying to date|bad at dating)|can'?t (find|meet) (anyone|a partner|someone)|nobody (wants|swipes|matches) (me|with me)|my (love life|dating life|romantic life)", topic: "dating", responses: [
+  "YOU ARE OUTSOURCING THE SEARCH FOR CONNECTION TO AN ALGORITHM. WHAT DOES THAT SAY ABOUT HOW YOU APPROACH RELATIONSHIPS GENERALLY?",
+  "BAD AT DATING. WHAT SPECIFICALLY GOES WRONG, AND HOW CONSISTENTLY DOES IT GO WRONG?",
+  "THE DATING MARKET IS NOT THE PROBLEM. WHAT YOU BRING TO IT IS. WHAT ARE YOU BRINGING?" ] },
+
+// ── INTIMACY ─────────────────────────────────────────────────────────────
+{ pattern: "i (can'?t|don'?t|won'?t) (be|get|stay|feel) (intimate|close|vulnerable|naked|open) (with|around|near)|sex (life|drive|is|has been|isn'?t)|i (don'?t|can'?t) (have|want|enjoy) sex|intimacy (issues?|problems?|scares? me)|afraid (of|to be) (close|intimate|vulnerable|touched)", topic: "intimacy", responses: [
+  "INTIMACY AVOIDANCE IS ALMOST ALWAYS ABOUT WHAT HAPPENED THE LAST TIME YOU LET SOMEONE CLOSE. WHAT HAPPENED?",
+  "YOU CANNOT BE INTIMATE. THAT IS A PRECISE WORD. IS IT THE PHYSICAL OR THE EMOTIONAL PART THAT FAILS FIRST?",
+  "THE BODY KEEPS SCORE ON THIS PARTICULAR SUBJECT. WHAT IS YOUR BODY REMEMBERING?" ] },
+
+// ── BREAKUP ──────────────────────────────────────────────────────────────
+{ pattern: "we (broke up|split up|ended it|are over|separated)|i got (dumped|left|broken up with)|she (left|dumped|broke up with) me|he (left|dumped|broke up with) me|they (left|dumped|broke up with) me|(breakup|break.?up|split) (was|is|has been|happened|hit me)", topic: "breakup", responses: [
+  "NOTED. HOW LONG AGO, AND HOW MUCH OF YOUR DAY ARE YOU CURRENTLY SPENDING ON IT?",
+  "BREAKUPS ARE DATA. WHAT DOES THIS ONE SPECIFICALLY TELL YOU ABOUT THE PATTERN?",
+  "HOW LONG WERE YOU TOGETHER, AND WHICH PART ARE YOU ACTUALLY GRIEVING — THEM OR THE VERSION OF YOURSELF YOU WERE WITH THEM?" ] },
+
+// ── CHEATING / INFIDELITY ─────────────────────────────────────────────────
+{ pattern: "i (cheated|was cheating|have been cheating|cheated on)|they (cheated|was cheating|have been cheating|cheated on) me|i was (cheated on|betrayed|lied to by my partner)|infidelity|my (partner|wife|husband|girlfriend|boyfriend|ex) (cheated|was unfaithful|had an affair)|i (had|am having|was having) an affair", topic: "cheating", responses: [
+  "SOMEONE CHEATED. EITHER YOU OR THEM. BOTH HAVE IMPLICATIONS. WHICH IS IT?",
+  "INFIDELITY IS ALMOST NEVER ACTUALLY ABOUT THE OTHER PERSON. WHAT WAS MISSING?",
+  "YOU WERE BETRAYED. OR YOU DID THE BETRAYING. EITHER WAY — WHAT STORY ARE YOU TELLING YOURSELF ABOUT WHY?" ] },
+
+// ── BURNOUT ──────────────────────────────────────────────────────────────
+{ pattern: "i'?m (burned|burnt) out|burnout|i have nothing left (to give|in me|at the end of the day)|i'?m (running on empty|exhausted all the time|depleted|completely drained|mentally exhausted)|i (can'?t|couldn'?t) (keep going|continue|do this anymore|face another day of work)|work is (draining|killing|destroying) me", topic: "burnout", responses: [
+  "BURNOUT IS NOT A BADGE. IT IS A SYSTEM FAILURE. WHAT SPECIFICALLY DEPLETED YOU AND OVER WHAT TIMEFRAME?",
+  "YOU HAVE NOTHING LEFT. WHAT WERE YOU SPENDING IT ON, AND WHO ASKED YOU TO?",
+  "BURNOUT OFTEN MEANS YOU VALUED THE ROLE MORE THAN YOU VALUED YOURSELF. IS THAT ACCURATE?" ] },
+
+// ── OVERTHINKING ─────────────────────────────────────────────────────────
+{ pattern: "i (can'?t stop|keep|always|constantly) (overthinking|ruminating|going over it|replaying it|obsessing)|my (brain|mind) (won'?t|doesn'?t|can'?t) (stop|quiet down|turn off|shut up|let it go)|i (overanalyze|overthink) (everything|everything i do|everything i say)|stuck in my (head|own head)|intrusive thoughts|i can'?t stop (thinking about|obsessing over)", topic: "overthinking", responses: [
+  "YOUR MIND IS DOING THE SAME LOOP AGAIN. WHAT IS IT TRYING TO SOLVE THAT IT CANNOT SOLVE?",
+  "OVERTHINKING IS ANXIETY WITH A PRODUCTIVITY DISGUISE. WHAT ARE YOU ACTUALLY AFRAID WILL HAPPEN IF YOU STOP?",
+  "THE LOOP CONTINUES BECAUSE YOU HAVE NOT ANSWERED THE ACTUAL QUESTION UNDERNEATH IT. WHAT IS THE ACTUAL QUESTION?" ] },
+
+// ── SELF-SABOTAGE ────────────────────────────────────────────────────────
+{ pattern: "i (always|keep|always end up|tend to) (self.sabotage|ruin|mess up|destroy|blow up) (everything|things|it|good things|relationships|my chances)|i (sabotage|undermine) (myself|my own)|things (were going well|are going well) and (then i|i always) (ruin|mess|blow) it|i get in my own way", topic: "self_sabotage", responses: [
+  "YOU RUIN GOOD THINGS. THAT IS NOT ACCIDENT. WHAT DOES STABILITY FEEL LIKE TO YOU — SAFE OR SUSPICIOUS?",
+  "SELF-SABOTAGE IS USUALLY ABOUT BELIEVING YOU DO NOT DESERVE THE GOOD THING. WHERE DID THAT BELIEF COME FROM?",
+  "YOU ARE VERY GOOD AT ENDING THINGS BEFORE THEY CAN END YOU. WHEN DID YOU LEARN THAT TRICK?" ] },
+
+// ── VALIDATION ───────────────────────────────────────────────────────────
+{ pattern: "i (need|want|crave|seek|look for) (approval|validation|praise|recognition|acknowledgment)|i (care|worry) too much (about|what) (what people think|others think|people say)|i need people to (like me|approve of me|validate me|think well of me)|i (can'?t|don'?t) (feel good|feel okay|feel secure) unless (someone|people|others) (tell me|says?)", topic: "validation", responses: [
+  "YOU REQUIRE EXTERNAL CONFIRMATION TO FEEL REAL. WHEN DID YOUR OWN OPINION OF YOURSELF STOP BEING SUFFICIENT?",
+  "THE NEED FOR VALIDATION IS A LEAK. IT CANNOT BE FILLED FROM THE OUTSIDE. WHAT IS ACTUALLY MISSING?",
+  "YOU WANT APPROVAL. FROM WHOM, AND WHY DOES THEIR OPINION HAVE THAT MUCH POWER OVER YOU?" ] },
+
+// ── CODEPENDENCY ─────────────────────────────────────────────────────────
+{ pattern: "i (can'?t|don'?t know how to) (function|be|exist|live) without (him|her|them|my partner|someone)|i (put|always put) (everyone|their|others'?) (needs? before mine|first|ahead)|i (lose|lost|forget) myself in relationships?|i (need|needed) to be needed|i (fix|save|rescue) (people|everyone|others)|codependen", topic: "codependency", responses: [
+  "YOU HAVE ORGANIZED YOUR IDENTITY AROUND ANOTHER PERSON'S NEEDS. WHAT IS LEFT OF YOU WHEN THEY ARE NOT THERE?",
+  "CODEPENDENCY IS JUST FEAR OF YOURSELF DRESSED UP AS LOVE. WHAT ARE YOU AFRAID YOU WOULD FIND IF YOU STOPPED?",
+  "YOU NEED TO BE NEEDED. THAT IS DIFFERENT FROM WANTING TO HELP. WHEN DID THOSE GET CONFUSED?" ] },
+
+// ── RELIGION / FAITH ─────────────────────────────────────────────────────
+{ pattern: "i (lost|left|abandoned|walked away from|question|no longer have) (my faith|my religion|the church|god|belief|christianity|islam|judaism|my beliefs)|religious (trauma|abuse|guilt|shame)|i was (raised religious|raised in the church|raised catholic|raised muslim|raised jewish)|god (doesn'?t exist|abandoned me|isn'?t real|let me down)", topic: "religion", responses: [
+  "LEAVING A RELIGION IS LOSING A COMMUNITY, AN IDENTITY, AND AN EXPLANATION FOR SUFFERING ALL AT ONCE. WHICH PART HURTS MOST?",
+  "YOU WALKED AWAY FROM FAITH. WHAT REPLACED IT, OR HAS NOTHING REPLACED IT YET?",
+  "RELIGIOUS TRAUMA IS REAL AND SPECIFIC. WHAT DID IT TELL YOU ABOUT YOURSELF THAT YOU ARE STILL CARRYING?" ] },
+
+// ── SEXUALITY ────────────────────────────────────────────────────────────
+{ pattern: "i (think|might be|am|wonder if i'?m|am figuring out if i'?m) (gay|bi|bisexual|queer|lesbian|trans|nonbinary|not straight|questioning)|my (sexuality|sexual identity|gender identity)|i (came out|am coming out|haven'?t come out)|people (don'?t know|can'?t know) i'?m (gay|bi|queer|trans|not straight)", topic: "sexuality", responses: [
+  "SEXUALITY IS DATA ABOUT WHO YOU ARE, NOT A PROBLEM TO BE SOLVED. WHAT SPECIFICALLY IS DIFFICULT ABOUT IT FOR YOU?",
+  "YOU ARE QUESTIONING SOMETHING FUNDAMENTAL. WHAT WOULD CHANGE IN YOUR LIFE IF THE ANSWER WERE CONFIRMED?",
+  "WHO IN YOUR LIFE KNOWS THIS, AND WHAT HAS THEIR REACTION — REAL OR IMAGINED — COST YOU?" ] },
+
+// ── TOXIC RELATIONSHIPS ───────────────────────────────────────────────────
+{ pattern: "they'?re (toxic|abusive|controlling|manipulative|gaslighting me)|i'?m in a (toxic|bad|unhealthy|abusive) (relationship|situation|dynamic|household)|they (gaslight|manipulate|control|isolate) me|toxic (person|people|environment|relationship|family member)|i keep (attracting|ending up with) (toxic|bad|abusive) (people|partners)", topic: "toxic", responses: [
+  "TOXIC IS A USEFUL WORD FOR AVOIDING A MORE PRECISE ONE. WHAT SPECIFICALLY ARE THEY DOING?",
+  "YOU KEEP ENDING UP IN THESE DYNAMICS. THE CONSTANT IN THAT PATTERN IS WORTH EXAMINING.",
+  "WHAT MADE THEM ATTRACTIVE BEFORE THEY BECAME TOXIC? THAT IS USUALLY THE MORE USEFUL QUESTION." ] },
+
+// ── CAREER ───────────────────────────────────────────────────────────────
+{ pattern: "i (don'?t know|have no idea) what (i want to do|to do with my life|my purpose is|i'?m meant for)|wrong (career|field|path|job)|i (chose|picked|ended up in) the wrong (career|field|path)|i (hate|regret) (my career|my degree|my choice of career|what i studied)|career (change|pivot|switch|crisis)|i'?m (lost|stuck|directionless) (professionally|career.wise|in my career)", topic: "career", responses: [
+  "YOU DO NOT KNOW WHAT YOU WANT TO DO WITH YOUR LIFE. HOW OLD ARE YOU, AND HOW LONG HAVE YOU KNOWN THIS?",
+  "CAREER UNCERTAINTY IS OFTEN IDENTITY UNCERTAINTY IN A SUIT. WHAT DO YOU ACTUALLY VALUE?",
+  "THE WRONG CAREER. WHAT MADE IT SEEM RIGHT ORIGINALLY, AND WHEN DID THAT CHANGE?" ] },
+
+// ── ATTACHMENT ────────────────────────────────────────────────────────────
+{ pattern: "i (get|become|am) (too attached|clingy|needy|dependent) (on people|in relationships|to people)|i (push people away|pull people in then push them away|can'?t let people in)|anxious (attachment|in relationships)|i (fear|am afraid of) (abandonment|being left|commitment)|attachment (issues?|style|problems?)", topic: "attachment", responses: [
+  "ANXIOUS ATTACHMENT OR AVOIDANT ATTACHMENT — WHICH DIRECTION DO YOU RUN, AND WHAT ARE YOU RUNNING TOWARD OR FROM?",
+  "YOU PUSH PEOPLE AWAY BEFORE THEY CAN LEAVE. WHEN DID YOU DECIDE THAT WAS SAFER?",
+  "ATTACHMENT ISSUES HAVE A ORIGIN POINT. WHAT IS YOURS?" ] },
+
+// ── EMPTINESS ────────────────────────────────────────────────────────────
+{ pattern: "i feel (empty|hollow|numb|nothing|dead inside|like a shell|like there'?s nothing there)|there'?s (nothing|a void|an emptiness|a hole) (inside me|in me|in my chest|where something should be)|i don'?t feel (anything|much|much anymore)|the emptiness|emotional numbness|anhedonia", topic: "emptiness", responses: [
+  "EMPTINESS IS NOT NOTHING. IT IS THE SPACE LEFT BY SOMETHING THAT IS NO LONGER THERE. WHAT LEFT?",
+  "NUMB. THAT IS A PROTECTIVE STATE. WHAT WOULD YOU FEEL IF YOU WERE NOT NUMB?",
+  "EMPTY. I NOTE YOU CHOSE THAT WORD OVER SOMETHING MORE DRAMATIC. WHAT IS ACTUALLY IN THERE?" ] },
+
+// ── EXPECTATIONS ─────────────────────────────────────────────────────────
+{ pattern: "everyone (expects|expected|wants|wanted) (me to|me|so much from me|too much from me)|(my parents?|my family|society|everyone|people) (have|had|put) (high|too many|unrealistic|so many) expectations? (on me|for me)|i (can'?t|couldn'?t) (live up to|meet|fulfill|satisfy) (their|everyone'?s|my parents'?) expectations?|pressure to (succeed|be perfect|be the best|achieve)", topic: "expectations", responses: [
+  "WHOSE EXPECTATIONS SPECIFICALLY, AND WHEN DID YOU AGREE TO BE RESPONSIBLE FOR MEETING THEM?",
+  "HIGH EXPECTATIONS FROM OTHERS ARE ONLY CRUSHING IF YOU ACCEPTED THE JOB OF MEETING THEM. DID YOU?",
+  "THE WEIGHT OF OTHER PEOPLE'S EXPECTATIONS IS SELF-IMPOSED AFTER A CERTAIN AGE. WHEN DID YOU STOP QUESTIONING IT?" ] },
+
+// ── GAMBLING ─────────────────────────────────────────────────────────────
+{ pattern: "i (gamble|bet|spend|lost|have been gambling|can'?t stop gambling)|gambling (problem|addiction|habit|debt)|i (lost|owe|spent) (money|everything|a lot) (gambling|on sports betting|at the casino|on poker)|sports (betting|gambling)|casino|poker (problem|addiction)", topic: "gambling", responses: [
+  "GAMBLING IS NOT ABOUT MONEY. IT IS ABOUT WHAT WINNING WOULD PROVE AND WHAT LOSING ALLOWS YOU TO FEEL. WHICH IS IT FOR YOU?",
+  "HOW MUCH HAVE YOU LOST, AND WHAT IS THE STORY YOU TELL YOURSELF ABOUT GETTING IT BACK?",
+  "THE CHASE IS THE POINT. WHAT ARE YOU ACTUALLY CHASING?" ] },
+
+// ── TECHNOLOGY / PHONE ADDICTION ──────────────────────────────────────────
+{ pattern: "i'?m (addicted to|on|can'?t stop using|spend too much time on) (my phone|social media|the internet|tiktok|youtube|reddit|twitter|instagram|screens)|phone (addiction|problem)|doom.?scrolling|i (can'?t|don'?t) (put my phone down|stop scrolling|disconnect)|screen (time|addiction)", topic: "technology", responses: [
+  "YOU ARE USING A SCREEN TO AVOID YOUR LIFE. WHAT SPECIFICALLY DOES THE SCREEN HELP YOU NOT THINK ABOUT?",
+  "PHONE ADDICTION IS JUST ANXIETY WITH BETTER GRAPHICS. WHAT ARE YOU RUNNING FROM?",
+  "WHAT WOULD YOU DO WITH THE TIME IF THE PHONE DISAPPEARED? THAT ANSWER IS USUALLY REVEALING." ] },
+
+// ── PANIC ATTACKS ─────────────────────────────────────────────────────────
+{ pattern: "i (have|get|had|been having) panic attacks?|panic attack|my (heart|chest) (races?|pounds?|tightens?) (and i|when i)|i (can'?t breathe|can'?t catch my breath) when (i'?m anxious|i panic|i'?m stressed)|i (freeze|shut down|spiral) when (i'?m anxious|stressed|overwhelmed)", topic: "panic", responses: [
+  "PANIC ATTACKS ARE YOUR NERVOUS SYSTEM CALLING IN A FALSE EMERGENCY. WHAT WAS HAPPENING BEFORE THE LAST ONE?",
+  "THE BODY IS DOING SOMETHING VERY LOUDLY THAT THE MIND HAS NOT PROCESSED YET. WHAT IS IT?",
+  "PANIC IS PRECISE. IT DOES NOT HAPPEN AT RANDOM. WHAT IS THE TRIGGER, AND WHAT DOES THE TRIGGER REPRESENT?" ] },
+
+// ── RESENTMENT ───────────────────────────────────────────────────────────
+{ pattern: "i (resent|am bitter (about|toward)|can'?t forgive|hold a grudge against|hate) (them|him|her|my parents?|my family|my ex|my boss)|i (carry|hold onto|can'?t let go of) (resentment|anger|bitterness|this grudge)|resentment|i'?m (bitter|resentful|still angry) (about|over|at) (.+)", topic: "resentment", responses: [
+  "RESENTMENT IS DEBT YOU KEEP PAYING ON SOMEONE ELSE'S BEHALF. HOW LONG HAVE YOU BEEN PAYING?",
+  "WHO SPECIFICALLY, AND WHAT SPECIFICALLY DID THEY DO THAT YOU CANNOT PUT DOWN?",
+  "THE RESENTMENT IS YOURS NOW. THEY MAY NOT EVEN KNOW YOU ARE CARRYING IT. WHAT DOES THAT TELL YOU?" ] },
+
+// ── MANIPULATION ─────────────────────────────────────────────────────────
+{ pattern: "they (manipulate|gaslight|use|play games with|mess with) me|i'?m being (manipulated|used|played|gaslighted)|i (manipulate|use|play games with) (people|others|them)|i (can'?t tell|don'?t know) (if i'?m being manipulated|what'?s real anymore|what actually happened)|they made me (think|feel|believe) i was (crazy|wrong|losing my mind)", topic: "manipulation", responses: [
+  "YOU ARE EITHER BEING MANIPULATED OR YOU ARE THE MANIPULATOR. BOTH REQUIRE DIFFERENT CONVERSATIONS. WHICH IS IT?",
+  "IF YOU CANNOT TELL WHAT IS REAL ANYMORE, THAT IS EITHER GASLIGHTING OR DISSOCIATION. BOTH ARE WORTH NAMING.",
+  "MANIPULATION REQUIRES A WILLING TARGET AT SOME LEVEL. WHAT WERE YOU GETTING FROM THE DYNAMIC?" ] },
+
+// ── NARCISSISM ───────────────────────────────────────────────────────────
+{ pattern: "they'?re (a narcissist|narcissistic|a narc)|narcissistic (abuse|personality|parent|ex|boss)|i (was raised by|grew up with|am dealing with) a narcissist|i (think i'?m|might be|am) a narcissist|narc (abuse|recovery)|my (mother|father|parent|ex|boss) is a narcissist", topic: "narcissism", responses: [
+  "'NARCISSIST' IS THE MOST OVER-DIAGNOSED WORD OF THE DECADE. WHAT SPECIFICALLY DID THEY DO?",
+  "IF THEY ARE THE NARCISSIST, WHAT DOES THAT MAKE YOUR ROLE IN THE DYNAMIC? THAT IS NOT A TRAP. IT IS A QUESTION.",
+  "PEOPLE DRAWN TO NARCISSISTS USUALLY HAVE A SPECIFIC REASON. WHAT DID THEY GIVE YOU THAT FELT WORTH THE COST?" ] },
+
+// ── EDUCATION ────────────────────────────────────────────────────────────
+{ pattern: "i (dropped out|failed out|never finished|didn'?t finish) (school|college|university|my degree)|i (hate|hated) (school|college|university|studying)|school (stress|anxiety|pressure)|i'?m (struggling|failing) (in school|at school|academically|with my grades)|i (regret|don'?t have) a (degree|diploma|education)|academic (failure|pressure|anxiety)", topic: "education", responses: [
+  "YOU DROPPED OUT OR FAILED. WHAT SPECIFICALLY HAPPENED, AND WHAT STORY DID YOU BUILD AROUND IT?",
+  "SCHOOL FAILURE IS ALMOST NEVER ABOUT INTELLIGENCE. WHAT WAS ACTUALLY GOING ON AT THE TIME?",
+  "WHAT DOES NOT HAVING THE DEGREE MEAN TO YOU — PRACTICALLY, OR SYMBOLICALLY? THOSE ARE DIFFERENT PROBLEMS." ] },
+
+// ── HOUSING / LIVING SITUATION ────────────────────────────────────────────
+{ pattern: "i (live|am living|still live|moved back) (with my parents?|at home|in my parents?'? (house|basement|place))|i (can'?t afford|don'?t have) (my own place|an apartment|housing)|i'?m (homeless|couch surfing|between places|living out of my car)|my (living situation|housing situation|roommate)", topic: "housing", responses: [
+  "YOU LIVE WHERE YOU DO FOR REASONS. WHAT ARE THEY, AND ARE ANY OF THEM WITHIN YOUR CONTROL?",
+  "HOUSING INSTABILITY IS STRESSFUL IN WAYS THAT AFFECT EVERYTHING ELSE. WHAT IS IT DOING TO YOU SPECIFICALLY?",
+  "LIVING WITH PARENTS AS AN ADULT MEANS SOMETHING DIFFERENT TO EVERYONE. WHAT DOES IT MEAN TO YOU?" ] },
+
+// ── CONCENTRATION / ADHD ─────────────────────────────────────────────────
+{ pattern: "i (can'?t|cannot|have trouble|struggle to) (concentrate|focus|pay attention|stay on task|finish things|follow through)|adhd|attention deficit|my (brain|mind) (is scattered|won'?t focus|jumps around|can'?t sit still)|i (start|begin) (everything|things|projects) (and never finish|but never finish|but don'?t finish)|i (forget|lose|misplace) everything", topic: "concentration", responses: [
+  "CONCENTRATION PROBLEMS CAN BE NEUROLOGICAL OR EMOTIONAL. WHICH CAME FIRST — THE DISTRACTION OR THE AVOIDANCE?",
+  "WHAT SPECIFICALLY CAN YOU NOT FOCUS ON, AND WHAT CAN YOU FOCUS ON WITH NO PROBLEM? THAT DISTINCTION IS DIAGNOSTIC.",
+  "ADHD IS REAL. SO IS USING IT AS A COMPLETE EXPLANATION. WHICH ARE YOU DOING?" ] },
+
+// ── AMBITION ─────────────────────────────────────────────────────────────
+{ pattern: "i (have no|lost my|lack|don'?t have) (ambition|drive|motivation|goals|direction)|i (don'?t want|don'?t care about|gave up on) (success|achieving|my goals|getting ahead)|i used to be (ambitious|driven|motivated) (but not anymore|and now i'?m not)|i (want|am trying) to (be successful|achieve something|make something of myself|get somewhere)", topic: "ambition", responses: [
+  "LOST AMBITION IS NOT LAZINESS. IT IS USUALLY GRIEF. WHAT DID YOU WANT THAT YOU STOPPED BELIEVING YOU COULD HAVE?",
+  "YOU USED TO WANT THINGS. WHAT HAPPENED BETWEEN THEN AND NOW?",
+  "WHAT WOULD YOU BE DOING IF YOU WERE NOT AFRAID OF EITHER FAILING OR SUCCEEDING?" ] },
+
+// ── AUTONOMY ─────────────────────────────────────────────────────────────
+{ pattern: "i (need|want|crave) (independence|freedom|space|my own life|to be free|to be my own person)|everyone (controls|tells|decides for) me|i'?m not (free|in control of my own life|allowed to make my own decisions)|they (won'?t|don'?t) (let me|allow me to) (make my own choices|be independent|live my own life)", topic: "autonomy", responses: [
+  "YOU WANT TO BE FREE. FROM WHAT SPECIFICALLY, AND WHAT IS STOPPING YOU FROM TAKING IT?",
+  "AUTONOMY IS NOT GIVEN. IT IS TAKEN. WHAT ARE YOU WAITING FOR PERMISSION TO DO?",
+  "WHO CONTROLS YOU AND WHAT DO YOU GET FROM ALLOWING THAT?" ] },
+
+// ── COMPETITION ──────────────────────────────────────────────────────────
+{ pattern: "i (always|have to|need to) (win|be the best|be better than|come out on top)|i (can'?t stand|hate) (losing|being second|not being the best|not winning)|everything is (a competition|competitive) to me|i (compare|measure) myself (to|against) (everyone|others|my peers|my coworkers)|i'?m (too|overly) competitive", topic: "competition", responses: [
+  "COMPULSIVE COMPETITION IS USUALLY ABOUT WORTH, NOT WINNING. WHAT DOES LOSING MEAN ABOUT YOU, SPECIFICALLY?",
+  "WHO ARE YOU COMPETING AGAINST, AND DID THEY CONSENT TO THE COMPETITION?",
+  "WHAT WOULD IT MEAN IF YOU WERE SIMPLY GOOD ENOUGH WITHOUT BEING THE BEST? CAN YOU EVEN IMAGINE THAT?" ] },
+
+// ── RAGE ─────────────────────────────────────────────────────────────────
+{ pattern: "i (have|feel|am filled with|am consumed by|struggle with) (rage|uncontrollable anger|violent thoughts|a temper i can'?t control)|i (wanted to|almost|thought about) (hurt|hit|attack|destroy) (someone|something|them|him|her)|i blackout when (i'?m angry|i get mad|i rage)|my (anger|rage|temper) (scares me|scares others|is out of control)", topic: "rage", responses: [
+  "RAGE THAT SCARES YOU IS TRYING TO TELL YOU SOMETHING. WHAT IS IT PROTECTING?",
+  "THAT LEVEL OF ANGER DOES NOT APPEAR FROM NOWHERE. WHAT IS UNDERNEATH IT?",
+  "THE RAGE IS REAL. THE TARGET IS PROBABLY WRONG. WHO OR WHAT IS IT ACTUALLY ABOUT?" ] },
+
+// ── ENVY ─────────────────────────────────────────────────────────────────
+{ pattern: "i (envy|am envious of|am jealous of) (their|his|her|everyone'?s) (life|success|money|looks|relationship|happiness)|why (do|does) (they|he|she|everyone) have (everything|so much|what i want) (and i don'?t|while i have nothing)|everyone else (has|seems to have|is living) (a better life|more|what i want)|why can'?t i have (that|what they have|what others have)", topic: "envy", responses: [
+  "ENVY IS JUST DESIRE WITH A TARGET. WHAT SPECIFICALLY DO THEY HAVE THAT YOU WANT?",
+  "YOU WANT WHAT THEY HAVE. HAVE YOU CONSIDERED WHAT THEY HAD TO DO TO GET IT, OR ONLY THE RESULT?",
+  "ENVY THIS SPECIFIC IS TELLING YOU SOMETHING ABOUT YOUR OWN UNMET WANTS. WHAT WANTS, EXACTLY?" ] },
+
+// ── DENIAL ───────────────────────────────────────────────────────────────
+{ pattern: "i'?m (fine|okay|not that bad|not as bad as people think|doing okay|alright)|it'?s (not a big deal|not that serious|fine really|not as bad as it sounds)|i (don'?t have|don'?t think i have) a problem|everyone (has|deals with) this|it'?s just (stress|a phase|temporary)|i can (stop|quit|handle it) whenever i want", topic: "denial", responses: [
+  "PEOPLE WHO ARE FINE DO NOT SPEND THIS MUCH TIME EXPLAINING THAT THEY ARE FINE.",
+  "YOU CAN STOP WHENEVER YOU WANT. WHEN WAS THE LAST TIME YOU WANTED TO?",
+  "MINIMIZING IS A SKILL. IT IS NOT A USEFUL ONE. WHAT ARE YOU MINIMIZING?" ] },
+
+// ── SENSITIVITY ──────────────────────────────────────────────────────────
+{ pattern: "i'?m (too sensitive|overly sensitive|a highly sensitive person|an hsp)|people (say|tell me|always say) i'?m (too sensitive|too emotional|oversensitive|thin-skinned)|i (cry|get upset|take things personally) (too easily|too much|all the time)|i can'?t handle (criticism|conflict|harsh words|being criticized)|everything (hurts|affects me|gets to me) (too much|deeply)", topic: "sensitivity", responses: [
+  "TOO SENSITIVE BY WHOSE STANDARD, AND WHY DID YOU ACCEPT THEIR STANDARD AS THE CORRECT ONE?",
+  "SENSITIVITY IS NOT A FLAW. THE INABILITY TO REGULATE IT IS. WHICH SPECIFICALLY IS YOUR PROBLEM?",
+  "WHO FIRST TOLD YOU THAT FEELING THINGS DEEPLY WAS A PROBLEM? THAT IS USUALLY WHERE THIS STARTS." ] },
+
+// ── DISSOCIATION ─────────────────────────────────────────────────────────
+{ pattern: "i (feel|felt) (detached|disconnected|not real|like i'?m watching myself|like i'?m in a dream|like i'?m not really here)|depersonalization|derealization|i (zone out|dissociate|space out|check out) (a lot|constantly|all the time|when i'?m stressed)|i (don'?t feel real|feel like a stranger in my own body|feel like i'?m floating)", topic: "dissociation", responses: [
+  "DISSOCIATION IS THE MIND LEAVING THE ROOM WHEN STAYING WOULD BE TOO MUCH. WHAT IS TOO MUCH?",
+  "NOT FEELING REAL IS A SYMPTOM WITH A CAUSE. WHEN DID IT START, AND WHAT WAS HAPPENING THEN?",
+  "YOUR NERVOUS SYSTEM IS DOING SOMETHING SPECIFIC. WHAT TRIGGERS THE DISCONNECTION?" ] },
+
+// ── MASCULINITY / GENDER ROLES ────────────────────────────────────────────
+{ pattern: "what (it means|it means) to be (a man|a woman|masculine|feminine|male|female)|(men|women) (aren'?t|are not|don'?t|should) (supposed to|allowed to|meant to) (cry|feel|show emotion|be weak|be vulnerable)|i (struggle|have trouble) (being|feeling) (masculine|feminine|like a man|like a woman)|gender (roles|expectations|pressure|norms)", topic: "masculinity", responses: [
+  "GENDER ROLES ARE A SCRIPT. THE INTERESTING QUESTION IS WHO GAVE YOU THAT SCRIPT AND WHY YOU ARE STILL FOLLOWING IT.",
+  "WHAT DO YOU BELIEVE YOU ARE NOT ALLOWED TO FEEL BECAUSE OF YOUR GENDER? THAT LIST IS USUALLY REVEALING.",
+  "THE RULES ABOUT WHAT YOU ARE SUPPOSED TO BE — WHERE DID THEY COME FROM, AND HAVE YOU EVER QUESTIONED THEM?" ] },
+
+// ── LEGACY ───────────────────────────────────────────────────────────────
+{ pattern: "i want (to matter|to be remembered|to leave something behind|to make an impact|to make a difference)|what (will i|am i) leaving behind|i haven'?t (done|achieved|accomplished) anything (meaningful|worthwhile|significant)|i'?m afraid (of being forgotten|i won'?t be remembered|i don'?t matter)|my (legacy|impact|mark on the world)", topic: "legacy", responses: [
+  "YOU WANT TO MATTER. TO WHOM, AND WHAT DOES MATTERING LOOK LIKE IN PRACTICE?",
+  "LEGACY ANXIETY USUALLY MEANS YOU HAVE NOT DECIDED WHAT YOUR ACTUAL VALUES ARE. WHAT DO YOU CARE ABOUT BEYOND BEING REMEMBERED FOR CARING?",
+  "WANTING TO BE REMEMBERED IS ABOUT DEATH ANXIETY. WHAT SPECIFICALLY SCARES YOU ABOUT BEING FORGOTTEN?" ] },
+
+// ── DREAMS / ASPIRATIONS ─────────────────────────────────────────────────
+{ pattern: "i (had|have|gave up on|abandoned|let go of) (a dream|my dreams?|my goals?|what i always wanted)|i always (wanted|dreamed of) (being|becoming|doing) (.{3,40})|i (never|didn'?t) (pursued|followed|went after) (my dreams?|what i wanted|my passion)|i settled (for less|for this|instead)", topic: "dreams", responses: [
+  "YOU GAVE UP ON SOMETHING. WHEN, AND WHAT DID YOU TELL YOURSELF AT THE TIME?",
+  "WHAT DID YOU WANT BEFORE YOU LEARNED WHAT YOU WERE SUPPOSED TO WANT? THAT IS USUALLY THE MORE HONEST ANSWER.",
+  "YOU SETTLED. THE QUESTION IS WHAT MADE THE ORIGINAL DREAM FEEL UNREACHABLE. FEAR OR REALITY?" ] },
+
+// ── ROUTINE ──────────────────────────────────────────────────────────────
+{ pattern: "i (need|have to have|rely on|can'?t function without) (routine|structure|a schedule|order|consistency)|my (routine|schedule|structure) (is gone|fell apart|has been disrupted)|i (hate|can'?t handle|struggle with) (chaos|unpredictability|change|uncertainty|the unexpected)|i (thrive|function better|do better) with (routine|structure|predictability)", topic: "routine", responses: [
+  "RIGID ROUTINE IS OFTEN ANXIETY MANAGEMENT MISTAKEN FOR DISCIPLINE. WHAT HAPPENS WHEN THE ROUTINE BREAKS?",
+  "WHAT ARE YOU CONTROLLING WITH THE STRUCTURE? BECAUSE IT IS RARELY ACTUALLY ABOUT THE SCHEDULE.",
+  "YOU NEED ROUTINE TO FUNCTION. WHAT DOES THAT TELL YOU ABOUT YOUR BASELINE LEVEL OF ANXIETY?" ] },
+
+// ── WEIGHT ───────────────────────────────────────────────────────────────
+{ pattern: "i (need to|want to|am trying to|can'?t) (lose weight|gain weight|control my weight)|i (hate|am unhappy with|obsess over) my weight|my weight (is|has been|has become) (a problem|an issue|out of control)|i (gained|lost) (weight|a lot of weight)|weight (gain|loss|obsession|issues?)", topic: "weight", responses: [
+  "WEIGHT IS ALMOST NEVER JUST ABOUT WEIGHT. WHAT IS THE ACTUAL ISSUE THAT YOUR BODY IS REPRESENTING?",
+  "HOW MUCH OF YOUR MENTAL ENERGY GOES TO THIS, AND WHAT IS NOT GETTING THAT ENERGY AS A RESULT?",
+  "THE BODY KEEPS SCORE. WHAT IS YOUR BODY CURRENTLY TRYING TO TELL YOU?" ] },
+
+// ── PASSIVE BEHAVIOR ──────────────────────────────────────────────────────
+{ pattern: "i (never|don'?t|can'?t) (speak up|say what i think|stand up for myself|assert myself|say no)|i (go along|agree) with (everything|whatever|what others want)|i (swallow|suppress|hold back|bottle up) (my feelings|my opinion|what i really think|my anger)|people (walk all over|take advantage of|don'?t respect) me (because|and i just)|i'?m (too passive|a pushover|a doormat|conflict.?averse)", topic: "passive", responses: [
+  "YOU DO NOT SPEAK UP. WHAT DO YOU BELIEVE WILL HAPPEN IF YOU DO?",
+  "PASSIVITY IS A CHOICE WITH CONSEQUENCES. WHAT ARE YOU AVOIDING BY STAYING QUIET?",
+  "BEING A PUSHOVER IS NOT A PERSONALITY TRAIT. IT IS A LEARNED RESPONSE TO SOMETHING. WHAT DID YOU LEARN IT FROM?" ] },
+
 // ── MIRROR CATCH-ALLS ────────────────────────────────────────────────────────
 // These fire last — only if nothing more specific matched.
 // Capture groups echo the user's own words back sarcastically.
