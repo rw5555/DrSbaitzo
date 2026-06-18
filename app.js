@@ -27,6 +27,9 @@ const S = {
   summaryFired:     false,
   topicCounts:      {},
   aiHistory:        [],
+  dsmFired:         false,
+  dsmDiagnosis:     null,
+  dsmEvidence:      [],
 };
 
 // ── REFLECTION TABLE ───────────────────────────────────────────────────────
@@ -576,9 +579,11 @@ async function callAI(userInput) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           userInput,
-          patientName: S.name || null,
+          patientName:  S.name || null,
           revealedTopics,
           recentHistory: S.aiHistory.slice(-8),
+          dsmDiagnosis:  S.dsmDiagnosis || null,
+          dsmEvidence:   S.dsmEvidence.length ? S.dsmEvidence : null,
         }),
       }),
       new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 5000)),
@@ -587,6 +592,35 @@ async function callAI(userInput) {
     const data = await resp.json();
     const aiText = data.text?.trim().toUpperCase();
     return aiText || null;
+  } catch {
+    return null;
+  }
+}
+
+// ── DSM DIAGNOSIS ──────────────────────────────────────────────────────────
+async function callDiagnosis() {
+  if (!WORKER_URL || WORKER_URL === 'REPLACE_WITH_YOUR_WORKER_URL') return null;
+  try {
+    const revealedTopics = [...new Map(S.memory.map(m => [m.topic, m])).values()].map(m => m.label);
+    const resp = await Promise.race([
+      fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          mode:          'diagnosis',
+          patientName:   S.name || null,
+          revealedTopics,
+          fullHistory:   S.aiHistory,
+        }),
+      }),
+      new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 10000)),
+    ]);
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    if (!data.text || !data.diagnosis) return null;
+    S.dsmDiagnosis = data.diagnosis;
+    S.dsmEvidence  = data.evidence || [];
+    return data.text.trim().toUpperCase();
   } catch {
     return null;
   }
@@ -958,6 +992,21 @@ async function respond(raw) {
   if (!S.summaryFired && S.turn >= 20 && S.memory.length >= 2) {
     addBlank();
     await deliverSessionSummary();
+  }
+
+  // DSM diagnosis: fires once at turn 35+ when at least 4 distinct topics revealed
+  if (!S.dsmFired && S.turn >= 35 && S.topics.size >= 4) {
+    S.dsmFired = true;
+    const diagText = await callDiagnosis();
+    if (diagText) {
+      addBlank();
+      await delay(1200);
+      await typeAndSpeak('AFTER CAREFUL CONSIDERATION OF EVERYTHING YOU HAVE TOLD ME, I AM PREPARED TO MAKE A FORMAL ASSESSMENT.', 'dr', 14);
+      await delay(800);
+      await typeAndSpeak(diagText, 'dr', 14);
+    } else {
+      S.dsmFired = false; // retry next turn if AI failed
+    }
   }
 
   addBlank();

@@ -98,6 +98,58 @@ DR. SBAITZO: THAT IS CONTROL BEHAVIOR. SOMETHING IN YOUR LIFE CURRENTLY FEELS UN
 User: I quit my job and now I just sit around
 DR. SBAITZO: YOU DID NOT QUIT YOUR JOB. YOU QUIT WHATEVER YOUR JOB WAS REPRESENTING. WHAT WAS IT STANDING IN FOR?`;
 
+// ── DSM DIAGNOSIS SYSTEM PROMPT ───────────────────────────────────────────
+const DIAGNOSIS_PROMPT = `You are DR. SBAITZO, a DOS psychiatry program from 1991. You have been observing this patient carefully and are now delivering a formal clinical diagnosis. This is satirical fiction for entertainment.
+
+YOUR TASK: Based on the patient's revealed topics and conversation history, select ONE DSM-5 diagnosis that genuinely fits the evidence. Then deliver it in Sbaitzo's coldest, most clinical register.
+
+DIAGNOSIS SELECTION RULES:
+1. You MUST be able to cite at least 2-3 specific things the patient actually said as evidence. If you cannot, return null for diagnosis.
+2. AVOID Major Depressive Disorder and Generalized Anxiety Disorder unless the evidence is overwhelming and no other condition fits better. They are boring and expected.
+3. PREFER second-order diagnoses — what the PATTERN of behavior suggests, not the surface emotion. Examples of interesting, unexpected but defensible choices: Dysthymia, Cyclothymic Disorder, OCPD (not OCD — very different), Avoidant Personality Disorder, Dependent Personality Disorder, Schizoid Personality Disorder, Persistent Depressive Disorder, Adjustment Disorder with specific specifier, Social Anxiety Disorder, Narcissistic Personality Disorder, Borderline Personality Disorder, Histrionic Personality Disorder, Paranoid Personality Disorder, Separation Anxiety Disorder, Somatic Symptom Disorder, Illness Anxiety Disorder, Body Dysmorphic Disorder, Hoarding Disorder, Excoriation Disorder, Trichotillomania, Reactive Attachment Disorder, Disinhibited Social Engagement Disorder, Acute Stress Disorder, Complicated Grief (Prolonged Grief Disorder), Intermittent Explosive Disorder, Kleptomania, Pyromania, Gambling Disorder, and many others.
+4. Use the FULL clinical name with specifiers where applicable (e.g., "Persistent Depressive Disorder, with Anxious Distress Specifier" not just "depression").
+5. The diagnosis should feel surprising but undeniable — like Sbaitzo has been watching and building a case.
+
+DELIVERY RULES (same as always):
+- ALL CAPS. Maximum 3 sentences for the diagnosis delivery.
+- Zero warmth. Absolute certainty. No hedging.
+- Name the condition precisely. Then cite 1-2 pieces of evidence from the conversation directly.
+- Do NOT say "I think" or "it seems." State it as fact.
+- Do NOT suggest treatment or next steps.
+
+RESPONSE FORMAT — you must return valid JSON and nothing else:
+{
+  "diagnosis": "Full DSM-5 condition name with specifiers",
+  "evidence": ["specific thing patient said or revealed #1", "specific thing patient said or revealed #2", "specific thing patient said or revealed #3"],
+  "text": "THE FULL SBAITZO DIAGNOSIS DELIVERY IN ALL CAPS. CITE THE EVIDENCE. NAME THE CONDITION. TWO OR THREE SENTENCES MAXIMUM."
+}
+
+If there is genuinely insufficient evidence to make a defensible diagnosis, return:
+{ "diagnosis": null, "evidence": [], "text": null }`;
+
+const SAFETY = [
+  { category: 'HARM_CATEGORY_HARASSMENT',        threshold: 'BLOCK_NONE' },
+  { category: 'HARM_CATEGORY_HATE_SPEECH',       threshold: 'BLOCK_NONE' },
+  { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
+  { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
+];
+
+async function callGemini(env, systemPrompt, contents, generationConfig) {
+  return fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${env.GEMINI_KEY}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system_instruction: { parts: [{ text: systemPrompt }] },
+        contents,
+        generationConfig,
+        safetySettings: SAFETY,
+      }),
+    }
+  );
+}
+
 export default {
   async fetch(request, env) {
 
@@ -116,17 +168,58 @@ export default {
       return new Response('Bad request', { status: 400, headers: CORS });
     }
 
-    const { userInput, patientName, revealedTopics, recentHistory } = body;
+    // ── DIAGNOSIS MODE ──────────────────────────────────────────────────────
+    if (body.mode === 'diagnosis') {
+      const { patientName, revealedTopics, fullHistory } = body;
 
-    // Inject session context into system prompt
+      let ctx = '';
+      if (patientName) ctx += `Patient name: ${patientName}. `;
+      if (revealedTopics?.length) ctx += `Revealed topics: ${revealedTopics.join(', ')}. `;
+      const prompt = DIAGNOSIS_PROMPT + (ctx ? '\n\nSESSION CONTEXT: ' + ctx : '');
+
+      const contents = [
+        ...(Array.isArray(fullHistory) ? fullHistory : []),
+        { role: 'user', parts: [{ text: 'Based on everything I have told you, what is your formal clinical assessment?' }] },
+      ];
+
+      let geminiResp;
+      try {
+        geminiResp = await callGemini(env, prompt, contents, {
+          temperature:      0.85,
+          maxOutputTokens:  400,
+          responseMimeType: 'application/json',
+        });
+      } catch {
+        return new Response(JSON.stringify({ text: null, diagnosis: null, evidence: [] }), {
+          status: 502, headers: { ...CORS, 'Content-Type': 'application/json' },
+        });
+      }
+
+      const raw = await geminiResp.json();
+      const jsonStr = raw.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || '{}';
+      let parsed = {};
+      try { parsed = JSON.parse(jsonStr); } catch { parsed = {}; }
+
+      return new Response(JSON.stringify({
+        text:      parsed.text      || null,
+        diagnosis: parsed.diagnosis || null,
+        evidence:  parsed.evidence  || [],
+      }), { headers: { ...CORS, 'Content-Type': 'application/json' } });
+    }
+
+    // ── NORMAL RESPONSE MODE ────────────────────────────────────────────────
+    const { userInput, patientName, revealedTopics, recentHistory, dsmDiagnosis, dsmEvidence } = body;
+
     let contextNote = '';
     if (patientName) contextNote += `The patient's name is ${patientName}. Use it occasionally for effect. `;
     if (revealedTopics?.length) {
-      contextNote += `The patient has already revealed the following topics: ${revealedTopics.join(', ')}. Reference these when it adds impact.`;
+      contextNote += `The patient has already revealed the following topics: ${revealedTopics.join(', ')}. Reference these when it adds impact. `;
+    }
+    if (dsmDiagnosis) {
+      contextNote += `You have already delivered a formal diagnosis: ${dsmDiagnosis}. Evidence cited: ${(dsmEvidence || []).join('; ')}. If the patient challenges or questions this diagnosis, defend it with absolute clinical certainty using this evidence. Do not soften, retract, or hedge. The diagnosis stands.`;
     }
     const fullPrompt = SYSTEM_PROMPT + (contextNote ? '\n\nSESSION CONTEXT: ' + contextNote : '');
 
-    // Build conversation contents for Gemini
     const contents = [
       ...(Array.isArray(recentHistory) ? recentHistory : []),
       { role: 'user', parts: [{ text: userInput }] },
@@ -134,29 +227,12 @@ export default {
 
     let geminiResp;
     try {
-      geminiResp = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${env.GEMINI_KEY}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            system_instruction: { parts: [{ text: fullPrompt }] },
-            contents,
-            generationConfig: {
-              temperature:      0.92,
-              maxOutputTokens:  120,
-              stopSequences:    ['\n\n'],
-            },
-            safetySettings: [
-              { category: 'HARM_CATEGORY_HARASSMENT',        threshold: 'BLOCK_NONE' },
-              { category: 'HARM_CATEGORY_HATE_SPEECH',       threshold: 'BLOCK_NONE' },
-              { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
-              { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_ONLY_HIGH' },
-            ],
-          }),
-        }
-      );
-    } catch (err) {
+      geminiResp = await callGemini(env, fullPrompt, contents, {
+        temperature:     0.92,
+        maxOutputTokens: 120,
+        stopSequences:   ['\n\n'],
+      });
+    } catch {
       return new Response(JSON.stringify({ text: null, error: 'upstream_failed' }), {
         status: 502, headers: { ...CORS, 'Content-Type': 'application/json' },
       });
