@@ -609,7 +609,28 @@ const EXPERTISE_CLAIMS = [
   "AH. A FAMILIAR PATTERN.",
   "THIS IS TEXTBOOK.",
   "I WROTE THE CHAPTER ON THIS.",
+  "CATALOGUED. FILED. CROSS-REFERENCED.",
+  "YES. I KNOW THIS ONE.",
+  "NOTED. ALREADY NOTED, IN FACT.",
+  "THIS HAS A NAME.",
+  "I COULD HAVE PREDICTED THIS.",
+  "THERE IT IS.",
+  "AH. OF COURSE.",
+  "I HAVE TREATED THIS BEFORE.",
+  "DIAGNOSTIC. VERY DIAGNOSTIC.",
+  "THAT LANDED EXACTLY WHERE I EXPECTED IT TO.",
 ];
+
+// Pick an expertise claim — weighted so the last few fire roughly 1/3 as often
+function pickExpertiseClaim(level) {
+  const base = EXPERTISE_CLAIMS.slice(0, 5);
+  const extras = EXPERTISE_CLAIMS.slice(5);
+  if (level < base.length) return base[level];
+  // For repeated/high levels, pick randomly from extras 2/3 of the time, "I WROTE THE CHAPTER" 1/3
+  return Math.random() < 0.33
+    ? "I WROTE THE CHAPTER ON THIS."
+    : extras[Math.floor(Math.random() * extras.length)];
+}
 
 // ── AI CALL ────────────────────────────────────────────────────────────────
 async function callAI(userInput) {
@@ -1000,7 +1021,7 @@ async function respond(raw) {
   // Collect prefix lines (expertise claim, repeated-topic interjection)
   const prefixLines = [];
   if (expertiseLevel !== undefined) {
-    prefixLines.push(EXPERTISE_CLAIMS[Math.min(expertiseLevel, EXPERTISE_CLAIMS.length - 1)]);
+    prefixLines.push(pickExpertiseClaim(expertiseLevel));
   }
   if (repeatedTopic) {
     const rtUnused = REPEAT_TOPIC_LINES.filter(r => !S.lastResponses.has(r));
