@@ -1864,7 +1864,7 @@ patterns: [
 // These fire last — only if nothing more specific matched.
 // Capture groups echo the user's own words back sarcastically.
 
-{ pattern: "^i'?m? (really |just |so |very |kind of |kinda |pretty |extremely |honestly )?(.{4,60})$", topic: "mirror", responses: [
+{ pattern: "^i'?m? (really |just |so |very |kind of |kinda |pretty |extremely |honestly )?(\\w+\\s+\\w+\\s+\\w[^]{0,50})$", topic: "mirror", responses: [
   "YOU $2. I SEE. WAS THAT THE FULL THOUGHT, OR IS THERE MORE UNDERNEATH IT?",
   "SO YOU $2. OUT OF CURIOSITY — HOW LONG HAVE YOU BEEN $2, AND HAS ANYONE ELSE NOTICED?",
   "YOU $2. AND YOU CAME TO TELL ME THAT SPECIFICALLY. WHY THIS, WHY TODAY?",
@@ -1872,11 +1872,10 @@ patterns: [
   "YOU $2. FINE. BUT WHAT CAUSED IT? THINGS DO NOT JUST HAPPEN IN A VACUUM, {NAME}.",
   "YOU $2. THAT IS WHAT YOU OPENED WITH. I EXPECTED MORE. WHAT ELSE?" ] },
 
-{ pattern: "^it'?s? (really |just |so |very |kind of |kinda |pretty |extremely |honestly )?(.{4,60})$", topic: "mirror", responses: [
-  "IT'S $2. NOTED. AND WHAT EXACTLY ARE YOU PLANNING TO DO ABOUT THE FACT THAT IT'S $2?",
+{ pattern: "^it'?s? (really |just |so |very |kind of |kinda |pretty |extremely |honestly )?(\\w+\\s+\\w+\\s+\\w[^]{0,50})$", topic: "mirror", useAI: 0.50, responses: [
   "IT IS $2. YES. I GATHERED. WHAT I HAVE NOT GATHERED IS WHY YOU CARE AS MUCH AS YOU CLEARLY DO.",
   "SO IT IS $2. WHICH PART OF THAT IS BOTHERING YOU MOST, SPECIFICALLY?",
-  "IT IS $2. AND BEFORE IT WAS $2, WHAT WAS IT? BECAUSE THESE THINGS HAVE HISTORIES." ] },
+  "IT IS $2. AND HOW LONG HAS THAT BEEN THE CASE?" ] },
 
 { pattern: "^(everything|nothing|everyone|nobody|no one|everybody) (.{4,60})$", topic: "mirror", responses: [
   "$1 $2. THAT IS A VERY LARGE CLAIM. WHAT IS THE ACTUAL EVIDENCE FOR '$1'?",
