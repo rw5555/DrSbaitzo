@@ -2046,9 +2046,9 @@ patterns: [
   "YOU $2. THAT IS WHAT YOU OPENED WITH. I EXPECTED MORE. WHAT ELSE?" ] },
 
 { pattern: "^it'?s (really |just |so |very |kind of |kinda |pretty |extremely |honestly )?(\\w+\\s+\\w+\\s+\\w[^]{0,50})$", topic: "mirror", useAI: 0.50, responses: [
-  "IT IS $2. YES. I GATHERED. WHAT I HAVE NOT GATHERED IS WHY YOU CARE AS MUCH AS YOU CLEARLY DO.",
-  "SO IT IS $2. WHICH PART OF THAT IS BOTHERING YOU MOST, SPECIFICALLY?",
-  "IT IS $2. AND HOW LONG HAS THAT BEEN THE CASE?" ] },
+  "YES. AND? YOU CAME HERE TO STATE A FACT OR TO UNDERSTAND WHY IT IS AFFECTING YOU THIS MUCH?",
+  "NOTED. WHICH PART OF THAT IS ACTUALLY BOTHERING YOU, SPECIFICALLY?",
+  "HOW LONG HAS THAT BEEN THE CASE?" ] },
 
 { pattern: "^(everything|nothing|everyone|nobody|no one|everybody) (.{4,60})$", topic: "mirror", responses: [
   "$1 $2. THAT IS A VERY LARGE CLAIM. WHAT IS THE ACTUAL EVIDENCE FOR '$1'?",
