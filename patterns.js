@@ -2085,7 +2085,7 @@ patterns: [
 
 { pattern: "^(my|the) (\\w+) (.{4,60})$", topic: "mirror", responses: [
   "YOUR $2 $3. TELL ME MORE ABOUT THIS $2 OF YOURS. IT SOUNDS IMPORTANT.",
-  "THE $2 $3. AND HOW DOES THAT MAKE YOU FEEL ABOUT YOUR $2 SPECIFICALLY?",
+  "YOUR $2 $3. AND HOW DOES THAT MAKE YOU FEEL ABOUT YOUR $2 SPECIFICALLY?",
   "YOUR $2 $3. HAS IT ALWAYS BEEN THIS WAY, OR DID SOMETHING CHANGE?" ] },
 
 { pattern: "^(i (think|feel|believe|guess|suppose|know|wonder|wish|want|need|hate|love)) (.{4,60})$", topic: "mirror", responses: [
