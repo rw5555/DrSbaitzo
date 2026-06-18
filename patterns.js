@@ -2045,7 +2045,7 @@ patterns: [
   "YOU $2. FINE. BUT WHAT CAUSED IT? THINGS DO NOT JUST HAPPEN IN A VACUUM, {NAME}.",
   "YOU $2. THAT IS WHAT YOU OPENED WITH. I EXPECTED MORE. WHAT ELSE?" ] },
 
-{ pattern: "^it'?s (really |just |so |very |kind of |kinda |pretty |extremely |honestly )?(\\w+\\s+\\w+\\s+\\w[^]{0,50})$", topic: "mirror", useAI: 0.50, responses: [
+{ pattern: "^it'?s (really |just |so |very |kind of |kinda |pretty |extremely |honestly )?(\\w+\\s+\\w+\\s+\\w[^]{0,50})$", topic: "mirror", useAI: 1.0, responses: [
   "YES. AND? YOU CAME HERE TO STATE A FACT OR TO UNDERSTAND WHY IT IS AFFECTING YOU THIS MUCH?",
   "NOTED. WHICH PART OF THAT IS ACTUALLY BOTHERING YOU, SPECIFICALLY?",
   "HOW LONG HAS THAT BEEN THE CASE?" ] },
