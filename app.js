@@ -382,7 +382,8 @@ const TONE_FALLBACKS = {
     "INTERESTING. HOW LONG HAS THIS BEEN THE CASE?",
     "I WOULD LIKE TO UNDERSTAND THAT BETTER. TELL ME MORE.",
     "THAT IS SIGNIFICANT. WHAT DO YOU THINK IT MEANS?",
-    "LET US RETURN TO WHAT YOU SAID A MOMENT AGO. CAN YOU SAY MORE?",
+    "CONTINUE. I AM FORMING AN OPINION.",
+    "THAT IS ONE ANGLE. WHAT IS THE ANGLE YOU ARE NOT TELLING ME?",
   ],
   sarcastic: [
     "FASCINATING. TRULY. PLEASE CONTINUE.",
@@ -480,6 +481,7 @@ const MIRROR_TEMPLATES = [
 function getMirrorResponse(words) {
   const interesting = words.filter(w => w.length >= 4 && !LONG_STOP.has(w));
   if (!interesting.length) return null;
+  if (Math.random() < 0.35) return null; // 35% chance: fall through to AI instead
   const word = interesting[Math.floor(Math.random() * interesting.length)];
   const unused = MIRROR_TEMPLATES.filter(t => !S.lastResponses.has(t));
   const pool = unused.length ? unused : MIRROR_TEMPLATES;
@@ -543,9 +545,15 @@ const REPEAT_TOPIC_LINES = [
   "AGAIN. YES. I NOTICED.",
   "THIS TOPIC AGAIN. FINE.",
   "STILL ON THIS, ARE WE.",
-  "I REMEMBER. YOU MENTIONED THIS.",
   "YOU COME BACK TO THIS A LOT. THAT IS WORTH NOTING.",
   "BACK TO THIS. TELL ME SOMETHING NEW ABOUT IT THIS TIME.",
+  "CIRCLING BACK. YOU DO THAT.",
+  "THIS SUBJECT AGAIN. I HAVE BEEN KEEPING COUNT.",
+  "YOU KEEP RETURNING HERE. THAT IS THE INTERESTING PART — NOT WHAT YOU SAY, BUT THAT YOU KEEP COMING BACK.",
+  "NOTED. AGAIN. AS IT HAS BEEN NOTED BEFORE.",
+  "YOU ARE DRAWN TO THIS. THAT ITSELF IS A FINDING.",
+  "YOU ARE NOT FINISHED WITH THIS TOPIC. CLEARLY. WHAT IS STILL UNRESOLVED?",
+  "I FILED THIS AWAY. YOU APPARENTLY COULD NOT.",
 ];
 
 // ── COMPLIMENT DEFLECTION ─────────────────────────────────────────────────
@@ -697,7 +705,16 @@ function matchInput(raw) {
       }
       if (p.storeName && m[1]) {
         const raw = m[1].trim().split(/\s+/)[0];
-        S.name = raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+        const newName = raw.charAt(0).toUpperCase() + raw.slice(1).toLowerCase();
+        // If we already know the name, don't re-fire the introduction response — route to AI
+        if (S.name && S.name.toLowerCase() === newName.toLowerCase()) {
+          return { text: '', action: null, useAI: true };
+        }
+        S.name = newName;
+      }
+      // Repeat-topic: 35% chance AI handles it instead of scripted interjection
+      if (repeatedTopic && Math.random() < 0.35) {
+        return { text: fillVars(pickUnique(p.responses), m), action: p.action || null, expertiseLevel, useAI: true };
       }
       return { text: fillVars(pickUnique(p.responses), m), action: p.action || null, expertiseLevel, repeatedTopic };
     }
