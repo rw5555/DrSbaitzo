@@ -246,7 +246,7 @@ export default {
     const parts = data.candidates?.[0]?.content?.parts ?? [];
     const text = (parts.find(p => !p.thought)?.text ?? parts[0]?.text ?? '').trim() || null;
 
-    return new Response(JSON.stringify({ text, _s: geminiResp.status, _e: data.error?.code ?? null }), {
+    return new Response(JSON.stringify({ text }), {
       headers: { ...CORS, 'Content-Type': 'application/json' },
     });
   },
