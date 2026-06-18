@@ -1,7 +1,7 @@
 'use strict';
 
 // ── AI HYBRID ─────────────────────────────────────────────────────────────
-const WORKER_URL = 'https://sbaitzo-proxy.ryannwiller.workers.dev/';
+const WORKER_URL = 'https://sbaitzo-proxy.drsbaitzo.workers.dev/';
 
 // ── STATE ──────────────────────────────────────────────────────────────────
 const S = {
