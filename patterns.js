@@ -549,7 +549,7 @@ patterns: [
   "WHERE DID YOU FIRST LEARN THAT THIS THING WAS SHAMEFUL? WHO TAUGHT YOU THAT?",
   "EMBARRASSMENT FADES. SHAME TENDS TO STICK BECAUSE IT IS ABOUT IDENTITY, NOT JUST ACTION. WHICH IS THIS?",
   "WHAT WOULD YOU NEED TO DO TO STOP BEING ASHAMED OF YOURSELF? IS ANY OF THAT WITHIN YOUR REACH?" ] },
-{ pattern: "my mother|my mom|my mum|my mama|my ma\\b", topic: "family-mother", responses: [
+{ pattern: "my (mother|mom|mum|mama|ma\\b|stepmother|stepmom|step mom|foster mom|adoptive mom|birth mom|biological mother|bio mom)|my (mom|mother|mum|mama|stepmother|stepmom) (said|told me|thinks|wants|doesn'?t understand|always says|never|keeps saying|called|texted|asked me)", topic: "family-mother", responses: [
   "TELL ME MORE ABOUT YOUR MOTHER. WHAT IS YOUR RELATIONSHIP LIKE?",
   "MOTHERS. A RELIABLE SOURCE OF BOTH COMFORT AND THERAPEUTIC MATERIAL. TELL ME ABOUT YOURS.",
   "WHAT COMES TO MIND FIRST WHEN YOU THINK OF HER? NOT WHAT YOU THINK YOU SHOULD THINK. WHAT ACTUALLY COMES FIRST.",
@@ -576,7 +576,7 @@ patterns: [
   "HOW LONG HAS SHE BEEN LIKE THIS? AND HOW HAS IT AFFECTED YOU OVER TIME?",
   "WHAT DO YOU WISH WERE DIFFERENT ABOUT YOUR RELATIONSHIP WITH HER?" ] },
 
-{ pattern: "my father|my dad|my papa|my pop\\b|my old man", topic: "family-father", responses: [
+{ pattern: "my (father|dad|papa|pop\\b|old man|stepdad|stepfather|step dad|step father|foster dad|adoptive dad|birth dad|biological father|bio dad)|my (dad|father|papa|stepdad|stepfather) (said|told me|thinks|wants|doesn'?t understand|always says|never|keeps saying|called|texted|asked me)", topic: "family-father", responses: [
   "TELL ME ABOUT YOUR FATHER. WHAT KIND OF RELATIONSHIP DO YOU HAVE?",
   "FATHERS LEAVE A MARK — POSITIVE OR NEGATIVE. USUALLY BOTH. WHAT IS YOUR EXPERIENCE?",
   "WHAT IS THE FIRST THOUGHT THAT COMES TO MIND WHEN I SAY 'YOUR FATHER'? TELL ME ABOUT THAT.",
@@ -598,7 +598,7 @@ patterns: [
   "HOW OLD WERE YOU? AND WHAT DID YOU MAKE OF IT AT THE TIME?",
   "DID YOU EVER GET AN EXPLANATION? AND WAS IT SATISFYING?" ] },
 
-{ pattern: "my (brother|sister|sibling|twin)", topic: "family-siblings", responses: [
+{ pattern: "my (brother|sister|sibling|twin|half.?brother|half.?sister|step.?brother|step.?sister|older brother|younger brother|older sister|younger sister|big brother|little brother|big sister|little sister|bro\\b|sis\\b)", topic: "family-siblings", responses: [
   "TELL ME ABOUT YOUR SIBLING. IS THE RELATIONSHIP CLOSE?",
   "SIBLINGS CAN BE CLOSEST ALLIES OR GREATEST RIVALS. WHICH IS IT FOR YOU, AND ON WHAT DAY OF THE WEEK?",
   "WHAT ROLE HAS YOUR SIBLING PLAYED IN YOUR LIFE? THE ROLE THEY CHOSE, OR THE ONE THEY WERE ASSIGNED?",
@@ -622,7 +622,7 @@ patterns: [
   "TELL ME MORE. WHAT IS THIS PERSON LIKE IN YOUR LIFE — HELPFUL, DIFFICULT, OR BOTH?",
   "THE IN-LAWS. A SUBJECT THAT HAS SUSTAINED COMEDIANS FOR GENERATIONS. WHAT IS YOURS LIKE?" ] },
 
-{ pattern: "family (drama|problems|issues|conflict|fighting|tension|dysfunction)", topic: "family-extended", responses: [
+{ pattern: "family (drama|problems|issues|conflict|conflicts|fighting|tension|dysfunction|trouble|troubles|situation|mess|chaos|stress|pressure|expectations|gathering|reunion|dinner|holiday|holidays|get.?together)|my family (is|has been|keeps|always|never|drives me|stresses me|is driving me)", topic: "family-extended", responses: [
   "FAMILY CONFLICT. THE ORIGINAL HUMAN CONDITION. WHAT IS THE CORE OF THE TENSION IN YOURS?",
   "MOST FAMILIES HAVE FAULT LINES. WHAT RUNS ALONG YOURS?",
   "HOW DOES THIS FAMILY DRAMA AFFECT YOUR OWN MENTAL STATE? THAT IS THE PART WE SHOULD FOCUS ON.",
@@ -936,7 +936,7 @@ patterns: [
   "THAT ENERGY IS REAL AND WORTH USING. WHAT SPECIFICALLY ARE YOU EXCITED ABOUT?",
   "GOOD. HOLD ONTO THAT. WHAT IS IT ABOUT $3 THAT HAS CAPTURED YOUR ATTENTION?" ] },
 
-{ pattern: "i (am|feel|am feeling|feel so) (lonely|alone|isolated|disconnected|cut off|invisible)", topic: "loneliness", responses: [
+{ pattern: "i (am|feel|am feeling|feel so|have been feeling|have been) (lonely|alone|isolated|disconnected|cut off|invisible|unseen|unheard|forgotten|overlooked|on my own|by myself|without anyone|with no one|completely alone|utterly alone|so alone|like no one cares|like i don'?t matter|like i'?m invisible|like a ghost)", topic: "loneliness", responses: [
   "LONELINESS. NOTED. THE MORE INTERESTING QUESTION IS WHETHER THIS IS CIRCUMSTANCE OR SOMETHING YOU ARE PRODUCING YOURSELF.",
   "DISCONNECTED FROM OTHERS. HOW MUCH OF THAT IS THEM, AND HOW MUCH IS YOU KEEPING THEM AT A COMFORTABLE DISTANCE?",
   "YOU FEEL ALONE. HOW MUCH EFFORT HAVE YOU ACTUALLY PUT INTO NOT BEING ALONE? SPECIFICALLY.",
@@ -1009,7 +1009,7 @@ patterns: [
   "ACTUAL IMPOSTORS RARELY WORRY ABOUT BEING IMPOSTORS. YOU KNOW THAT. SO WHAT IS ACTUALLY DRIVING THIS?",
   "WHAT IS THE ACTUAL EVIDENCE THAT YOU BELONG WHERE YOU ARE? LET US LOOK AT THAT SPECIFICALLY INSTEAD OF THE FEELINGS.",
   "WHAT SPECIFICALLY DO YOU FEEL YOU ARE FAKING? WALK ME THROUGH IT. BECAUSE VAGUE FEELINGS OF FRAUD ARE DIFFERENT FROM SPECIFIC INCOMPETENCE." ] },
-{ pattern: "my (job|work|career|boss|manager|coworker|colleague|workplace|office)", topic: "work", responses: [
+{ pattern: "my (job|work|career|boss|manager|supervisor|coworker|colleague|workplace|office|cubicle|desk|salary|pay|paycheck|raise|promotion|performance review|annual review|job title|role|position|team|department|company|employer|9.?to.?5|nine to five)|i (work|am working|have been working) (remote|remotely|from home)|working from home|remote work|wfh|i got a (promotion|raise|review)|i have a (meeting|deadline|presentation|performance review) (coming up|today|tomorrow|next week|soon)", topic: "work", responses: [
   "TELL ME ABOUT YOUR WORK SITUATION. WHAT IS THE SPECIFIC PROBLEM AND HOW MUCH OF IT IS YOUR FAULT?",
   "WORK TAKES UP A THIRD OF YOUR WAKING LIFE. WHAT IS WEIGHING ON YOU ABOUT IT AND WHY HAVE YOU NOT DONE ANYTHING ABOUT THAT?",
   "HOW IS YOUR RELATIONSHIP WITH YOUR WORK RIGHT NOW? AND IS YOUR RELATIONSHIP WITH WORK THE ONLY RELATIONSHIP THAT IS FUNCTIONAL?",
@@ -1098,7 +1098,7 @@ patterns: [
   "WHAT DOES STAYING STILL PROTECT YOU FROM? THAT IS USUALLY THE ANSWER.",
   "IF THE DECISION WERE MADE FOR YOU, HOW WOULD YOU FEEL — RELIEVED OR PANICKED?" ] },
 
-{ pattern: "i'?m (bored|so bored|restless|unstimulated|not challenged)|nothing (to do|interests me|excites me)", topic: "boredom", responses: [
+{ pattern: "i'?m (bored|so bored|restless|unstimulated|not challenged|stagnating|going stir crazy|going crazy with boredom|numb to everything)|nothing (to do|interests me|excites me|stimulates me|engages me)|my life (is|feels|has become) (boring|dull|empty|flat|hollow|pointless|monotonous|the same every day)|i (have|don'?t have) (nothing|no hobbies|no interests|nothing to look forward to|nothing going on|nothing happening)|i (lost|have lost|can'?t find) (interest|motivation|passion|excitement) (in everything|in anything|anymore)|life (feels|has become) (flat|empty|hollow|dull|colorless|meaningless)|i (feel|am) (understimulated|hollow|empty|numb|going through the motions)|i'?m just (going through the motions|existing|surviving|killing time|wasting time)", topic: "boredom", responses: [
   "BORED. NOTHING EXCITES YOU. WHAT USED TO? AND WHAT HAPPENED TO IT?",
   "RESTLESSNESS USUALLY MEANS YOUR ACTUAL LIFE IS NOT HOLDING YOUR ATTENTION. WHAT SPECIFICALLY IS NOT DOING IT FOR YOU?",
   "YOU ARE UNSTIMULATED. WHAT HAVE YOU ACTUALLY TRIED? BECAUSE BOREDOM IS RARELY ABOUT CIRCUMSTANCE AND USUALLY ABOUT EFFORT.",
@@ -1156,7 +1156,7 @@ patterns: [
   "HAVE YOU SOUGHT ANY SUPPORT FOR THIS — AA, THERAPY, OR MEDICAL HELP?",
   "WHEN DID DRINKING SHIFT FROM SOMETHING SOCIAL TO SOMETHING ELSE? WAS THERE A CLEAR MOMENT?" ] },
 
-{ pattern: "i (use|am using|have been using|am addicted to|am dependent on) (drugs|marijuana|cocaine|heroin|opioids|pills|substances)", topic: "addiction", responses: [
+{ pattern: "i (use|am using|have been using|am addicted to|am dependent on|rely on|can'?t stop using|abuse|have abused) (drugs|marijuana|weed|cannabis|pot|cocaine|coke|heroin|opioids|opiates|pills|substances|meth|amphetamines|xanax|benzos|painkillers|prescription drugs|uppers|downers|molly|ecstasy|shrooms|mushrooms|ketamine|speed)|i (smoke|smoked|vape|vaped) (weed|marijuana|cannabis|pot|crack)|i'?m (an addict|addicted|in recovery|clean now|trying to get clean|trying to quit)", topic: "addiction", responses: [
   "SUBSTANCE USE CAN BE A WAY OF MANAGING PAIN THAT HAS NO BETTER OUTLET. WHAT FUNCTION IS IT SERVING FOR YOU?",
   "HOW LONG HAS THIS BEEN PART OF YOUR LIFE? AND WHAT WERE YOU TRYING TO SOLVE WHEN IT STARTED? BECAUSE SOMETHING SPECIFIC STARTED IT.",
   "WHAT WOULD YOUR LIFE LOOK LIKE WITHOUT IT? AND DOES THAT SOUND APPEALING OR TERRIFYING?" ] },
@@ -1973,7 +1973,7 @@ patterns: [
   "FAILURE IS INFORMATION. WHAT HAS IT TOLD YOU THAT YOU HAVE BEEN REFUSING TO HEAR?",
   "YOU ARE NOT A FAILURE. YOU ARE SOMEONE WHO HAS NOT FOUND THE RIGHT METHOD YET. WHAT HAVE YOU TRIED?" ] },
 
-{ pattern: "i (isolate|stay home|avoid people|hide|lock myself away|withdraw)|i (don'?t|can'?t) (go out|leave|socialize|see people|be around people)|i (push people away|keep to myself|avoid everyone)|i'?ve been (isolating|hiding|staying home|withdrawing)|i (feel|am) (isolated|alone|cut off|disconnected from everyone)", topic: "isolation", responses: [
+{ pattern: "i (isolate|stay home|avoid people|hide|lock myself away|withdraw|hole up|shut myself away|shut everyone out|cut myself off|barricade myself|go dark|go quiet|retreat|hibernate|never go out|never leave|cancel plans|cancel on people|ghost people|ghost everyone)|i (don'?t|can'?t) (go out|leave|leave the house|leave my room|leave my apartment|socialize|see people|be around people|talk to people|face people|deal with people)|i (push people away|keep to myself|avoid everyone|avoid contact|avoid interaction|cut people off|wall people out|shut people out)|i'?ve been (isolating|hiding|staying home|withdrawing|a hermit|a recluse|in my room|in my apartment|stuck at home)|i (feel|am) (isolated|alone|cut off|disconnected from everyone|completely alone|totally isolated|cut off from everyone)|i'?ve (become|turned into) (a hermit|a recluse)|i (spend|am spending) (all my time|most of my time) (alone|by myself|in my room|at home)|i (never|don'?t) (see anyone|go anywhere|leave|go out)", topic: "isolation", responses: [
   "YOU WITHDRAW. THAT IS A CHOICE WITH CONSEQUENCES. WHAT ARE YOU WITHDRAWING FROM SPECIFICALLY?",
   "ISOLATION FEELS SAFE UNTIL IT DOES NOT. WHICH SIDE OF THAT LINE ARE YOU ON?",
   "YOU PUSH PEOPLE AWAY AND THEN FEEL ALONE. I WANT TO BE CLEAR THAT I NOTICE THE ORDER OF OPERATIONS THERE.",
@@ -1991,7 +1991,7 @@ patterns: [
   "FEAR OF ABANDONMENT USUALLY STARTS SOMEWHERE SPECIFIC. WHERE DID YOU LEARN THIS?",
   "WHAT DO YOU DO TO PEOPLE BEFORE THEY GET A CHANCE TO LEAVE YOU?" ] },
 
-{ pattern: "i'?ve been drinking (more|a lot|too much)|i (rely on|use) alcohol|i can'?t stop drinking|i drink (to cope|to relax|every day|every night|too much|when i'?m stressed?)|i'?m (an alcoholic|drinking more than i should)|i (drink|have been drinking) (too much|a lot|more lately)", topic: "alcohol", responses: [
+{ pattern: "i'?ve been drinking (more|a lot|too much|heavily|every day|every night|constantly)|i (rely on|use|need) alcohol|i can'?t stop drinking|i drink (to cope|to relax|to forget|to numb|to escape|every day|every night|too much|when i'?m (stressed?|sad|upset|anxious|depressed|angry|bored|lonely)|alone|by myself)|i'?m (an alcoholic|drinking more than i should|a heavy drinker|dependent on alcohol|addicted to alcohol)|i (drink|have been drinking|started drinking) (too much|a lot|more lately|more recently|more than usual)|my (drinking|alcohol use|relationship with alcohol) (is|has become|got) (out of control|a problem|worse|bad)|i (got|get|keep getting) (drunk|wasted|hammered|blackout drunk|too drunk)|i blacked out|i (passed out|woke up) (from drinking|after drinking|drunk)|i (can'?t|couldn'?t) (stop after one|have just one drink|drink normally)|i'?m (sober|in recovery|trying to get sober|quitting drinking|cutting back|trying to stop drinking)|i (quit|stopped) drinking|i have a drinking problem|alcohol (is|has become) (a problem|my crutch|how i cope)", topic: "alcohol", responses: [
   "DRINKING MORE THAN USUAL IS ALMOST ALWAYS A SYMPTOM. WHAT IS THE UNDERLYING CONDITION?",
   "YOU DRINK TO COPE. COPE WITH WHAT, SPECIFICALLY?",
   "ALCOHOL IS A VERY TEMPORARY SOLUTION. WHAT PROBLEM KEEPS COMING BACK AFTER IT WEARS OFF?",
@@ -2021,7 +2021,7 @@ patterns: [
   "NOSTALGIA IS MEMORY WITH THE DIFFICULT PARTS EDITED OUT. WHAT ARE YOU NOT REMEMBERING?",
   "WHAT WOULD YOU HAVE TO ACCEPT ABOUT THE PRESENT IN ORDER TO LET GO OF THE PAST?" ] },
 
-{ pattern: "my (dogs?|cats?|pets?|puppies|puppy|kittens?|birds?|rabbits?|goldfish|fish|hamsters?)|i (have|had|lost) (a |some )?(dogs?|cats?|pets?|fish|birds?|rabbits?)|my (dogs?|cats?|pets?) (died|passed away|is sick|are sick|ran away)", topic: "pets", responses: [
+{ pattern: "my (dogs?|cats?|pets?|puppies|puppy|kittens?|kitten|birds?|rabbits?|bunny|bunnies|goldfish|fish|hamsters?|turtles?|tortoises?|snakes?|lizards?|geckos?|iguanas?|parrots?|chinchillas?|gerbils?|ferrets?|mice|rats?|guinea pigs?|bearded dragons?|fur baby|furbaby|companion animal|emotional support animal|esa)|i (have|had|lost|got|adopted|rescued) (a |some )?(dogs?|cats?|pets?|fish|birds?|rabbits?|bunny|snake|lizard|hamster|turtle|ferret|rat|mouse|guinea pig)|my (dogs?|cats?|pets?|animals?) (died|passed away|is sick|are sick|ran away|got lost|went missing|had to be put down|was put to sleep|is gone)|i (put|had) (my|a) (dog|cat|pet|animal) (to sleep|down|put down)|i (rescued|adopted|got) (a|my) (dog|cat|pet|puppy|kitten|animal)", topic: "pets", responses: [
   "YOU MENTIONED YOUR PET. PEOPLE OFTEN FIND IT EASIER TO LOVE ANIMALS THAN PEOPLE. IS THAT RELEVANT HERE?",
   "WHAT DOES YOUR PET GIVE YOU THAT YOU FIND DIFFICULT TO GET FROM PEOPLE?",
   "INTERESTING THAT YOU BROUGHT THAT UP. WHAT IS THE CONNECTION TO WHAT WE WERE DISCUSSING?",
@@ -2039,7 +2039,7 @@ patterns: [
 
 { pattern: "^i'?m? (really |just |so |very |kind of |kinda |pretty |extremely |honestly )?(\\w+\\s+\\w+\\s+\\w[^]{0,50})$", topic: "mirror", responses: [
   "YOU $2. I SEE. WAS THAT THE FULL THOUGHT, OR IS THERE MORE UNDERNEATH IT?",
-  "SO YOU $2. OUT OF CURIOSITY — HOW LONG HAVE YOU BEEN $2, AND HAS ANYONE ELSE NOTICED?",
+  "SO YOU $2. OUT OF CURIOSITY — HOW LONG HAS THAT BEEN THE CASE, AND HAS ANYONE ELSE NOTICED?",
   "YOU $2. AND YOU CAME TO TELL ME THAT SPECIFICALLY. WHY THIS, WHY TODAY?",
   "INTERESTING. YOU $2. WHAT DOES THAT ACTUALLY MEAN FOR YOUR DAILY LIFE?",
   "YOU $2. FINE. BUT WHAT CAUSED IT? THINGS DO NOT JUST HAPPEN IN A VACUUM, {NAME}.",
