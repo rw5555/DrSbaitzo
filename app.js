@@ -110,6 +110,9 @@ let activeSource = null;
 
 function prepareText(text) {
   return text
+    .replace(/\$(\d+(?:\.\d+)?)/g,  (_, n) => n + ' dollars')
+    .replace(/£(\d+(?:\.\d+)?)/g,   (_, n) => n + ' pounds')
+    .replace(/€(\d+(?:\.\d+)?)/g,   (_, n) => n + ' euros')
     .replace(/sbaitzo/gi, 'spaytso')
     .replace(/sbaitso/gi, 'spaytso')
     .replace(/rw5555/gi,  'r w fifty-five fifty-five')
