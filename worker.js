@@ -174,7 +174,7 @@ const SAFETY = [
 
 async function callGemini(env, systemPrompt, contents, generationConfig) {
   return fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${env.GEMINI_KEY}`,
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${env.GEMINI_KEY}`,
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -280,7 +280,7 @@ export default {
     const data = await geminiResp.json();
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim() || null;
 
-    return new Response(JSON.stringify({ text, _debug: data }), {
+    return new Response(JSON.stringify({ text }), {
       headers: { ...CORS, 'Content-Type': 'application/json' },
     });
   },
