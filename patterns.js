@@ -949,6 +949,21 @@ patterns: [
   "HAS IT ALWAYS FELT THIS WAY, OR DID SOMETHING CHANGE? BECAUSE THOSE REQUIRE VERY DIFFERENT DIAGNOSES.",
   "WHO IN YOUR LIFE COMES CLOSEST TO UNDERSTANDING YOU? AND WHAT HAVE YOU DONE TO MAKE THAT EASY FOR THEM?" ] },
 
+{ pattern: "(crushing|deep|profound|awful|terrible|horrible|intense|overwhelming|terrible|the) (loneliness|isolation|emptiness|aloneness)|loneliness (takes over|sets in|is|gets|hit|creeps|consumes|overwhelms)|the (loneliness|isolation) (is|was|has been|becomes|gets)", topic: "loneliness", responses: [
+  "LONELINESS NOTED. NOT AS A FEELING — AS A PATTERN. HOW LONG HAS THIS BEEN YOUR DEFAULT STATE?",
+  "THAT KIND OF LONELINESS IS NOT ACCIDENTAL. WHAT ARE YOU DOING, SPECIFICALLY, THAT KEEPS PEOPLE AT A DISTANCE?",
+  "LONELINESS AT THAT LEVEL IS USUALLY A SYMPTOM, NOT THE CONDITION. WHAT IS ACTUALLY HAPPENING?" ] },
+
+{ pattern: "(crushing|deep|profound|total|absolute|complete|pure|sheer|mind-numbing|the) (boredom|emptiness|numbness)|boredom (takes over|sets in|is|was|has|creeps|consumes)|the (boredom|monotony) (is|was|has been|becomes|gets)", topic: "boredom", responses: [
+  "THAT LEVEL OF BOREDOM IS DIAGNOSTIC. WHAT SPECIFICALLY HAS LOST ITS ABILITY TO HOLD YOUR ATTENTION?",
+  "BOREDOM THAT PROFOUND IS NOT ABOUT STIMULATION. IT IS ABOUT MEANING. WHAT USED TO HAVE MEANING?",
+  "YOU DESCRIBE BOREDOM AS SOMETHING THAT HAPPENS TO YOU. I WOULD PUSH BACK ON THAT FRAMING." ] },
+
+{ pattern: "(fear of|afraid of|terrified of|dread) (rejection|being rejected|being unwanted|being left|being abandoned)|rejection (hurts|stings|feels|is|was|hit|crushed|devastated)|the (rejection|fear of rejection)", topic: "rejection", responses: [
+  "FEAR OF REJECTION IS ALMOST ALWAYS ABOUT SOMETHING THAT ALREADY HAPPENED. WHEN WAS THE FIRST TIME?",
+  "YOU HAVE ORGANIZED YOUR BEHAVIOR AROUND AVOIDING REJECTION. WHAT HAS THAT COST YOU?",
+  "REJECTION AS A FEAR SUGGESTS A BELIEF THAT YOU ARE REJECTABLE. WHERE DID THAT COME FROM?" ] },
+
 { pattern: "someone (died|passed away|passed|is gone)|i (lost|am grieving|am mourning) (someone|a friend|a loved one)", topic: "grief", responses: [
   "SOMEONE DIED. THAT IS A FACT. THE QUESTION THAT INTERESTS ME IS WHAT YOU ARE DOING WITH THAT FACT.",
   "GRIEF IS NOT A DISORDER. IT IS THE INVOICE FOR CARING ABOUT SOMETHING. WHAT DID THIS PERSON MEAN TO YOU, SPECIFICALLY.",
@@ -1284,7 +1299,7 @@ patterns: [
   "WHAT PREVENTED YOU FROM TAKING THAT PATH? CHOICE, CIRCUMSTANCE, OR A MORE FLATTERING NARRATIVE?",
   "WHAT WOULD YOU START TODAY IF YOU ACTUALLY MEANT IT? BECAUSE 'IT IS NOT TOO LATE' IS ONLY TRUE FOR PEOPLE WHO START." ] },
 { pattern: "i (think|believe|feel|know|sense|suspect|imagine|suppose) (that )?(.+)", topic: "thought", responses: [
-  "DO YOU REALLY $1 THAT $3?",
+  "THAT IS YOUR POSITION. WHAT IS IT BASED ON?",
   "WHAT MAKES YOU $1 THAT?",
   "TELL ME MORE ABOUT WHY YOU $1 THAT.",
   "HOW LONG HAVE YOU $1 THAT?",
