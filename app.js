@@ -113,6 +113,8 @@ function prepareText(text) {
     .replace(/\$(\d+(?:\.\d+)?)/g,  (_, n) => n + ' dollars')
     .replace(/£(\d+(?:\.\d+)?)/g,   (_, n) => n + ' pounds')
     .replace(/€(\d+(?:\.\d+)?)/g,   (_, n) => n + ' euros')
+    .replace(/\bmisery\b/gi, 'mizzery')
+    .replace(/\bmiserable\b/gi, 'mizzeruble')
     .replace(/sbaitzo/gi, 'spaytso')
     .replace(/sbaitso/gi, 'spaytso')
     .replace(/rw5555/gi,  'r w fifty-five fifty-five')
@@ -251,7 +253,7 @@ const TOPIC_LABELS = {
   addiction:     'WHAT YOU MENTIONED ABOUT YOUR HABITS',
   money:         'YOUR FINANCIAL SITUATION',
   health:        'YOUR HEALTH',
-  identity:      'YOUR SENSE OF SELF',
+  identity:      () => { const r = Math.random(); return r < 0.20 ? 'YOUR SENSE OF SELF' : r < 0.50 ? 'YOUR IDENTITY' : 'WHO YOU THINK YOU ARE'; },
   purpose:       'WHAT YOU SAID ABOUT PURPOSE',
   sadness:       'WHAT YOU SAID ABOUT FEELING LOW',
   boredom:       'YOUR BOREDOM',
@@ -701,8 +703,10 @@ function matchInput(raw) {
       let expertiseLevel, repeatedTopic;
       if (isNewTopic) {
         expertiseLevel = S.memory.length;
-        S.memory.push({ topic: p.topic, label: TOPIC_LABELS[p.topic], turn: S.turn, used: false });
-        S.drillNext = { label: TOPIC_LABELS[p.topic] };
+        const rawLabel = TOPIC_LABELS[p.topic];
+        const label = typeof rawLabel === 'function' ? rawLabel() : rawLabel;
+        S.memory.push({ topic: p.topic, label, turn: S.turn, used: false });
+        S.drillNext = { label };
       } else if (isRepeatTopic && S.topicCounts[p.topic] >= 2) {
         repeatedTopic = true;
       }
