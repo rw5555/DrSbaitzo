@@ -477,7 +477,7 @@ patterns: [
 { pattern: "my name is (.+)|i am (.+)|call me (.+)|i'm (.+)|im (.+)", topic: "identity", storeName: true, useAI: 0.40, responses: [
   "NOTED, {NAME}. WHAT IS ON YOUR MIND?",
   "I SHALL CALL YOU {NAME}. YOU MAY CALL ME DR. SBAITZO. WHAT WOULD YOU LIKE TO DISCUSS?",
-  "WONDERFUL. NOW THEN, {NAME}, WHAT SEEMS TO BE THE MATTER?",
+  "{NAME}. NOTED. NOW — WHAT EXACTLY MADE YOU COME HERE TODAY?",
   "{NAME}. FILED. NOW — WHY ARE YOU HERE?" ] },
 
 { pattern: "who am i|what am i|i don'?t know who i am|lost sense of (self|identity|myself)", topic: "identity", responses: [
