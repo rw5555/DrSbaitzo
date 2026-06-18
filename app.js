@@ -28,6 +28,7 @@ const S = {
   topicCounts:      {},
   aiHistory:        [],
   dsmFired:         false,
+  dsmAttempts:      0,
   dsmDiagnosis:     null,
   dsmEvidence:      [],
 };
@@ -682,11 +683,13 @@ async function callDiagnosis() {
     ]);
     if (!resp.ok) return null;
     const data = await resp.json();
+    console.log('[diagnosis] raw response:', JSON.stringify(data));
     if (!data.text || !data.diagnosis) return null;
     S.dsmDiagnosis = data.diagnosis;
     S.dsmEvidence  = data.evidence || [];
     return data.text.trim().toUpperCase();
-  } catch {
+  } catch (e) {
+    console.log('[diagnosis] error:', e);
     return null;
   }
 }
@@ -1094,7 +1097,8 @@ async function respond(raw) {
       await delay(800);
       await typeAndSpeak(diagText, 'dr', 14);
     } else {
-      S.dsmFired = false; // retry next turn if AI failed
+      S.dsmAttempts++;
+      if (S.dsmAttempts < 3) S.dsmFired = false; // retry next turn, up to 3 attempts
     }
   }
 
