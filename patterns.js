@@ -1343,10 +1343,11 @@ patterns: [
   "WHAT WOULD IT MEAN TO YOU IF YOU KNEW THE ANSWER?",
   "WHAT THEORIES DO YOU HAVE ABOUT WHY $2?" ] },
 
-{ pattern: "how (do|can|should|could|would|did|will) (.+)", topic: "question", responses: [
-  "THAT IS WORTH EXPLORING. WHAT HAVE YOU TRIED SO FAR?",
+{ pattern: "how (do|can|should|could|would|did|will) (.+)", topic: "question", useAI: 0.35, responses: [
   "WHAT FEELS LIKE THE BIGGEST OBSTACLE?",
-  "IF YOU KNEW HOW, WHAT WOULD BE DIFFERENT?" ] },
+  "IF YOU KNEW HOW, WHAT WOULD BE DIFFERENT?",
+  "WHAT HAVE YOU ALREADY RULED OUT?",
+  "THAT QUESTION TELLS ME MORE THAN YOU THINK. WHAT IS BEHIND IT?" ] },
 
 { pattern: "when (will|does|do|can|should|did|would) (.+)", topic: "question", responses: [
   "WHAT MAKES TIMING FEEL SO IMPORTANT HERE?",

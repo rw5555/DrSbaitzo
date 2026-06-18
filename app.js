@@ -376,7 +376,7 @@ function getTone() {
 const TONE_FALLBACKS = {
   clinical: [
     "I SEE. WHAT ELSE CAN YOU TELL ME ABOUT THAT?",
-    "THAT IS WORTH EXPLORING. CONTINUE.",
+    "CONTINUE. I AM FORMING AN OPINION.",
     "AND WHEN DID YOU FIRST NOTICE THIS?",
     "I AM LISTENING. PLEASE GO ON.",
     "INTERESTING. HOW LONG HAS THIS BEEN THE CASE?",
@@ -473,7 +473,7 @@ const MIRROR_TEMPLATES = [
   "'{WORD}.' THAT IS DOING A LOT OF WORK IN THAT SENTENCE. UNPACK IT.",
   "YOU SAID '{WORD}.' I AM GOING TO NEED YOU TO BE MORE PRECISE THAN THAT.",
   "'{WORD}.' I HAVE HEARD THAT WORD BEFORE. IT RARELY MEANS WHAT PEOPLE THINK IT MEANS.",
-  "THAT WORD — '{WORD}' — IS CARRYING THE ENTIRE WEIGHT OF WHAT YOU JUST SAID. WHAT DO YOU ACTUALLY MEAN?",
+  "'{WORD}' IS DOING MORE WORK THAN YOU REALIZE. UNPACK IT.",
   "'{WORD}.' YOU USED THAT WORD AND MOVED ON. I DID NOT MOVE ON. WHAT IS BEHIND IT?",
   "I WANT TO STOP AT '{WORD}.' YOU SAID IT VERY CASUALLY. I DO NOT THINK IT IS CASUAL.",
 ];
@@ -716,7 +716,8 @@ function matchInput(raw) {
       if (repeatedTopic && Math.random() < 0.35) {
         return { text: fillVars(pickUnique(p.responses), m), action: p.action || null, expertiseLevel, useAI: true };
       }
-      return { text: fillVars(pickUnique(p.responses), m), action: p.action || null, expertiseLevel, repeatedTopic };
+      const useAI = p.useAI && Math.random() < p.useAI;
+      return { text: fillVars(pickUnique(p.responses), m), action: p.action || null, expertiseLevel, repeatedTopic, useAI };
     }
   }
 
