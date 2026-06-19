@@ -1326,10 +1326,10 @@ patterns: [
   "IF YOU GOT $1, WHAT WOULD BE DIFFERENT?" ] },
 
 { pattern: "i wish (.+)", topic: "desire", responses: [
-  "IF $1, HOW WOULD THINGS BE DIFFERENT?",
-  "DO YOU REALLY WISH $1, OR DO YOU WISH FOR SOMETHING DEEPER?",
-  "WHAT STOPS $1 FROM HAPPENING?",
-  "HOW LONG HAVE YOU WISHED $1?" ] },
+  "AND IF THAT WISH CAME TRUE, WHAT THEN?",
+  "IS THAT WISH REALISTIC, OR IS IT A WAY OF AVOIDING THE ACTUAL PROBLEM?",
+  "WHAT IS STANDING IN THE WAY OF THAT?",
+  "HOW LONG HAVE YOU BEEN CARRYING THAT WISH AROUND?" ] },
 
 { pattern: "i (remember|recalled|just thought of) (.+)", topic: "memory", responses: [
   "TELL ME MORE ABOUT $2. WHAT COMES TO MIND?",
