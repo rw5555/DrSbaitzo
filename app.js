@@ -841,6 +841,22 @@ function matchInput(raw) {
       const isRepeatTopic = p.topic && S.topics.has(p.topic) && !skip.includes(p.topic) && TOPIC_LABELS[p.topic];
       if (p.topic) S.topics.add(p.topic);
       if (p.topic) S.topicCounts[p.topic] = (S.topicCounts[p.topic] || 0) + 1;
+      // Mark synonym topics as seen so Sbaitzo doesn't treat them as unexplored
+      const TOPIC_ALIASES = {
+        job: ['work', 'career', 'burnout'], work: ['job', 'career'], career: ['job', 'work'],
+        burnout: ['job', 'work'], mother: ['family-mother'], father: ['family-father'],
+        siblings: ['family-siblings'], parenting: ['family-children'],
+        loneliness: ['isolation', 'solitude'], isolation: ['loneliness', 'solitude'],
+        alcohol: ['addiction'], addiction: ['alcohol'],
+        depression: ['sadness'], sadness: ['depression'],
+        anxiety: ['panic', 'stress'], panic: ['anxiety'], stress: ['anxiety'],
+        relationships: ['relationship', 'romance', 'intimacy'], relationship: ['relationships'],
+        eating: ['food'], food: ['eating'],
+        financial: ['money'], money: ['financial'],
+      };
+      if (p.topic && TOPIC_ALIASES[p.topic]) {
+        for (const alias of TOPIC_ALIASES[p.topic]) S.topics.add(alias);
+      }
       let expertiseLevel, repeatedTopic;
       if (isNewTopic) {
         expertiseLevel = S.memory.length;
