@@ -28,7 +28,6 @@ const S = {
   topicCounts:      {},
   aiHistory:        [],
   dsmFired:         false,
-  dsmAttempts:      0,
   dsmDiagnosis:     null,
   dsmEvidence:      [],
 };
@@ -164,10 +163,16 @@ function playRaw(text, onEnd) {
     if (!ok || !wavBuf || !audioCtx) { if (onEnd) onEnd(); return; }
     audioCtx.decodeAudioData(padWav(wavBuf, 0.4), audioData => {
       if (activeSource) { try { activeSource.stop(); } catch (_) {} }
-      const src = audioCtx.createBufferSource();
+      const src  = audioCtx.createBufferSource();
+      const gain = audioCtx.createGain();
       src.buffer = audioData;
-      src.connect(audioCtx.destination);
+      src.connect(gain);
+      gain.connect(audioCtx.destination);
       activeSource = src;
+      // Ramp gain to 0 over last 50 ms to eliminate end-of-buffer click
+      const end = audioCtx.currentTime + audioData.duration;
+      gain.gain.setValueAtTime(1, end - 0.05);
+      gain.gain.linearRampToValueAtTime(0, end);
       src.onended = () => {
         if (activeSource === src) activeSource = null;
         if (onEnd) onEnd();
@@ -1048,7 +1053,7 @@ async function respond(raw) {
         await typeAndSpeak(diagText, 'dr', 14);
         addBlank();
       } else {
-        S.dsmFired = false;
+        S.dsmFired = false; // retry next turn
       }
     }
     $inputLine.style.display = '';
@@ -1129,7 +1134,7 @@ async function respond(raw) {
     await deliverSessionSummary();
   }
 
-  // DSM diagnosis: fires once at turn 35+ when at least 4 distinct topics revealed
+  // DSM diagnosis: fires once at turn 20+ when at least 2 distinct topics revealed
   if (!S.dsmFired && S.turn >= 20 && S.memory.length >= 2) {
     S.dsmFired = true;
     const diagText = await callDiagnosis();
@@ -1140,8 +1145,7 @@ async function respond(raw) {
       await delay(800);
       await typeAndSpeak(diagText, 'dr', 14);
     } else {
-      S.dsmAttempts++;
-      if (S.dsmAttempts < 3) S.dsmFired = false; // retry next turn, up to 3 attempts
+      S.dsmFired = false; // retry next turn
     }
   }
 
