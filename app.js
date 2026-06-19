@@ -789,7 +789,7 @@ function matchInput(raw) {
       S.consecutiveMiss = Math.max(0, S.consecutiveMiss - 1);
       S.lastWasMemory   = false;
       S.lastWasDiagnosis = false;
-      const skip = ['easter_egg', 'minimal', 'mirror', 'opener', 'random', 'sbaitso_classic'];
+      const skip = ['easter_egg', 'minimal', 'mirror', 'opener', 'random', 'sbaitso_classic', 'profanity'];
       const isNewTopic = p.topic && !S.topics.has(p.topic) && !skip.includes(p.topic) && TOPIC_LABELS[p.topic];
       const isRepeatTopic = p.topic && S.topics.has(p.topic) && !skip.includes(p.topic) && TOPIC_LABELS[p.topic];
       if (p.topic) S.topics.add(p.topic);
