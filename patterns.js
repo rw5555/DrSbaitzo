@@ -1317,7 +1317,7 @@ patterns: [
   "WHY DO YOU WANT $1?",
   "WHAT WOULD CHANGE IF YOU HAD $1?",
   "HOW LONG HAVE YOU WANTED $1?",
-  "AND WHAT STOPS $1 FROM BEING POSSIBLE?" ] },
+  "AND WHAT EXACTLY IS STANDING IN THE WAY OF THAT?" ] },
 
 { pattern: "i need (.+)", topic: "desire", responses: [
   "WHY DO YOU NEED $1?",
