@@ -382,11 +382,36 @@ const MEMORY_TEMPLATES = [
   'YOU BROUGHT UP {LABEL} AND MOVED ON SO FAST I ALMOST MISSED IT. ALMOST. WHAT WAS THAT REALLY ABOUT?',
 ];
 
+const TOPIC_ALIAS_GROUPS = [
+  ['job', 'work', 'career', 'burnout'],
+  ['loneliness', 'isolation', 'solitude'],
+  ['alcohol', 'addiction'],
+  ['depression', 'sadness'],
+  ['anxiety', 'panic', 'stress'],
+  ['relationships', 'relationship', 'romance', 'intimacy'],
+  ['eating', 'food'],
+  ['financial', 'money'],
+  ['mother', 'family-mother'],
+  ['father', 'family-father'],
+  ['siblings', 'family-siblings'],
+  ['parenting', 'family-children'],
+];
+function topicAliasGroup(topic) {
+  return TOPIC_ALIAS_GROUPS.find(g => g.includes(topic)) || [topic];
+}
+
 function getMemoryResponse() {
   if (S.turn < 5 || S.lastWasMemory || !S.memory.length) return null;
   const memRate = { clinical: 0.18, sarcastic: 0.32, contemptuous: 0.48 }[getTone()];
   if (Math.random() >= memRate) return null;
-  const candidates = S.memory.filter(m => !m.used && S.turn - m.turn >= 3);
+  const usedGroups = S.memory.filter(m => m.used).map(m => topicAliasGroup(m.topic));
+  const candidates = S.memory.filter(m => {
+    if (m.used) return false;
+    if (S.turn - m.turn < 3) return false;
+    // Skip if a synonym topic was already used as a callback
+    const group = topicAliasGroup(m.topic);
+    return !usedGroups.some(ug => ug.some(t => group.includes(t)));
+  });
   if (!candidates.length) return null;
   const mem = candidates[Math.floor(Math.random() * candidates.length)];
   mem.used = true;
@@ -841,22 +866,6 @@ function matchInput(raw) {
       const isRepeatTopic = p.topic && S.topics.has(p.topic) && !skip.includes(p.topic) && TOPIC_LABELS[p.topic];
       if (p.topic) S.topics.add(p.topic);
       if (p.topic) S.topicCounts[p.topic] = (S.topicCounts[p.topic] || 0) + 1;
-      // Mark synonym topics as seen so Sbaitzo doesn't treat them as unexplored
-      const TOPIC_ALIASES = {
-        job: ['work', 'career', 'burnout'], work: ['job', 'career'], career: ['job', 'work'],
-        burnout: ['job', 'work'], mother: ['family-mother'], father: ['family-father'],
-        siblings: ['family-siblings'], parenting: ['family-children'],
-        loneliness: ['isolation', 'solitude'], isolation: ['loneliness', 'solitude'],
-        alcohol: ['addiction'], addiction: ['alcohol'],
-        depression: ['sadness'], sadness: ['depression'],
-        anxiety: ['panic', 'stress'], panic: ['anxiety'], stress: ['anxiety'],
-        relationships: ['relationship', 'romance', 'intimacy'], relationship: ['relationships'],
-        eating: ['food'], food: ['eating'],
-        financial: ['money'], money: ['financial'],
-      };
-      if (p.topic && TOPIC_ALIASES[p.topic]) {
-        for (const alias of TOPIC_ALIASES[p.topic]) S.topics.add(alias);
-      }
       let expertiseLevel, repeatedTopic;
       if (isNewTopic) {
         expertiseLevel = S.memory.length;
