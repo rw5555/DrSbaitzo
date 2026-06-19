@@ -27,6 +27,7 @@ const S = {
   summaryFired:     false,
   topicCounts:      {},
   aiHistory:        [],
+  fullHistory:      [],
   dsmFired:         false,
   dsmDiagnosis:     null,
   dsmEvidence:      [],
@@ -790,7 +791,7 @@ async function callDiagnosis() {
           mode:          'diagnosis',
           patientName:   S.name || null,
           revealedTopics,
-          fullHistory:   S.aiHistory,
+          fullHistory:   S.fullHistory,
         }),
       }),
       new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 10000)),
@@ -1129,7 +1130,7 @@ async function respond(raw) {
     await typeAndSpeak(r, 'dr', 14);
     addBlank();
     // Still check for diagnosis even on empty input
-    if (!S.dsmFired && S.turn >= 20 && S.memory.length >= 2) {
+    if (!S.dsmFired && S.turn >= 20 && S.memory.length >= 1) {
       S.dsmFired = true;
       const diagText = await callDiagnosis();
       if (diagText) {
@@ -1164,12 +1165,16 @@ async function respond(raw) {
     }
   }
 
-  // Track conversation history for AI context (last 8 exchanges)
+  // Track conversation history — full for diagnosis, trimmed for normal AI calls
   S.aiHistory.push(
     { role: 'user',  parts: [{ text: input }] },
     { role: 'model', parts: [{ text }] }
   );
   if (S.aiHistory.length > 16) S.aiHistory.splice(0, 2);
+  S.fullHistory.push(
+    { role: 'user',  parts: [{ text: input }] },
+    { role: 'model', parts: [{ text }] }
+  );
 
   // Collect prefix lines (expertise claim, repeated-topic interjection)
   const prefixLines = [];
@@ -1222,7 +1227,7 @@ async function respond(raw) {
   }
 
   // DSM diagnosis: fires once at turn 20+ when at least 2 distinct topics revealed
-  if (!S.dsmFired && S.turn >= 20 && S.memory.length >= 2) {
+  if (!S.dsmFired && S.turn >= 20 && S.memory.length >= 1) {
     S.dsmFired = true;
     const diagText = await callDiagnosis();
     if (diagText) {
