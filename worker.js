@@ -221,10 +221,9 @@ export default {
       let geminiResp;
       try {
         geminiResp = await callGemini(env, prompt, contents, {
-          temperature:      0.85,
-          maxOutputTokens:  400,
-          responseMimeType: 'application/json',
-          thinkingConfig:   { thinkingBudget: 0 },
+          temperature:    0.85,
+          maxOutputTokens: 500,
+          thinkingConfig: { thinkingBudget: 0 },
         });
       } catch {
         return new Response(JSON.stringify({ text: null, diagnosis: null, evidence: [] }), {
@@ -234,7 +233,9 @@ export default {
 
       const raw = await geminiResp.json();
       const rawParts = raw.candidates?.[0]?.content?.parts ?? [];
-      const jsonStr = (rawParts.find(p => !p.thought)?.text ?? rawParts[0]?.text ?? '').trim() || '{}';
+      const rawText = (rawParts.find(p => !p.thought)?.text ?? rawParts[0]?.text ?? '').trim();
+      const match = rawText.match(/\{[\s\S]*\}/);
+      const jsonStr = match ? match[0] : '{}';
       let parsed = {};
       try { parsed = JSON.parse(jsonStr); } catch { parsed = {}; }
 
