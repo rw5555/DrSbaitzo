@@ -817,7 +817,7 @@ function matchInput(raw) {
       if (repeatedTopic && Math.random() < 0.35) {
         return { text: fillVars(pickUnique(p.responses), m), action: p.action || null, expertiseLevel, useAI: true };
       }
-      const aiProb = p.useAI !== undefined ? p.useAI : (S.dsmDiagnosis ? 0.85 : 0.33);
+      const aiProb = p.useAI !== undefined ? p.useAI : (S.dsmDiagnosis ? 0.85 : 0.40);
       const useAI = Math.random() < aiProb;
       return { text: fillVars(pickUnique(p.responses), m), action: p.action || null, expertiseLevel, repeatedTopic, useAI };
     }
