@@ -24,7 +24,12 @@
       </div>
     </div>
 
-    <div id="output">
+    <!-- PASSWORD GATE: sits in place of #output until dismissed -->
+    <div id="pw-gate" style="flex:1;display:flex;justify-content:center;align-items:flex-start;padding-top:clamp(8px,1.2vw,20px);">
+      <span id="pw-line" style="color:#55FF55;">ENTER PASSWORD: <span id="pw-typed"></span><span style="animation:blink 1s step-end infinite;">_</span></span>
+    </div>
+
+    <div id="output" style="display:none;">
       <div id="input-line">
         <span id="prompt"></span><span id="typed-text"></span><span id="cursor">_</span>
       </div>
@@ -32,36 +37,11 @@
 
   </div>
 
-  <!-- PASSWORD GATE -->
-  <div id="pw-gate" style="
-    position:fixed;inset:0;z-index:9999;
-    background:#0000AA;
-    display:flex;flex-direction:column;
-    padding:clamp(6px,1vw,14px);
-    font-family:'DOS','VT323',monospace;
-    font-size:clamp(16px,2.1vw,28px);
-    color:#FFFFFF;
-    -webkit-font-smoothing:none;
-    font-smooth:never;
-  ">
-    <div style="flex-shrink:0;border:5px double #FFFFFF;margin-bottom:clamp(4px,0.6vw,10px);">
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:2px clamp(6px,1vw,14px);">
-        <span>Sound Blaster</span>
-        <span style="color:#FFFF55;letter-spacing:0.18em;">D R &nbsp; S B A I T Z O</span>
-        <span>version 2.20</span>
-      </div>
-      <div style="text-align:center;padding:2px clamp(6px,1vw,14px);">
-        <span style="color:#55FF55;">(c) Copyright rw5555 Labs, Inc. 2026,</span> all rights reserved
-      </div>
-    </div>
-    <div style="margin-top:clamp(8px,1.2vw,20px);text-align:center;">
-      <span id="pw-line" style="color:#55FF55;">ENTER PASSWORD: <span id="pw-typed"></span><span style="animation:blink 1s step-end infinite;">_</span></span>
-    </div>
-  </div>
   <style>@keyframes blink { 50% { opacity:0; } }</style>
   <script>
     (function() {
       var gate = document.getElementById('pw-gate');
+      var output = document.getElementById('output');
       var pwTyped = document.getElementById('pw-typed');
       var pwLine = document.getElementById('pw-line');
       var buf = '', done = false;
@@ -73,6 +53,7 @@
           if (buf.toLowerCase() === 'sbaitzo') {
             done = true;
             gate.style.display = 'none';
+            output.style.display = '';
           } else {
             buf = '';
             pwLine.style.color = '#FF5555';
