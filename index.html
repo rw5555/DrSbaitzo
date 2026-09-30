@@ -32,6 +32,64 @@
 
   </div>
 
+  <!-- PASSWORD GATE -->
+  <div id="pw-gate" style="
+    position:fixed;inset:0;z-index:9999;
+    background:#0000AA;
+    display:flex;flex-direction:column;
+    padding:clamp(6px,1vw,14px);
+    font-family:'DOS','VT323',monospace;
+    font-size:clamp(16px,2.1vw,28px);
+    color:#FFFFFF;
+    -webkit-font-smoothing:none;
+    font-smooth:never;
+  ">
+    <div style="flex-shrink:0;border:5px double #FFFFFF;margin-bottom:clamp(4px,0.6vw,10px);">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:2px clamp(6px,1vw,14px);">
+        <span>Sound Blaster</span>
+        <span style="color:#FFFF55;letter-spacing:0.18em;">D R &nbsp; S B A I T Z O</span>
+        <span>version 2.20</span>
+      </div>
+      <div style="text-align:center;padding:2px clamp(6px,1vw,14px);">
+        <span style="color:#55FF55;">(c) Copyright rw5555 Labs, Inc. 2026,</span> all rights reserved
+      </div>
+    </div>
+    <div style="margin-top:clamp(8px,1.2vw,20px);text-align:center;">
+      <span id="pw-line" style="color:#55FF55;">ENTER PASSWORD: <span id="pw-typed"></span><span style="animation:blink 1s step-end infinite;">_</span></span>
+    </div>
+  </div>
+  <style>@keyframes blink { 50% { opacity:0; } }</style>
+  <script>
+    (function() {
+      var gate = document.getElementById('pw-gate');
+      var pwTyped = document.getElementById('pw-typed');
+      var pwLine = document.getElementById('pw-line');
+      var buf = '', done = false;
+      document.addEventListener('keydown', function(e) {
+        if (done) return;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        if (e.key === 'Enter') {
+          if (buf.toLowerCase() === 'sbaitzo') {
+            done = true;
+            gate.style.display = 'none';
+          } else {
+            buf = '';
+            pwLine.style.color = '#FF5555';
+            pwTyped.textContent = 'WRONG PW';
+            setTimeout(function() { pwLine.style.color = '#55FF55'; pwTyped.textContent = ''; }, 1200);
+          }
+        } else if (e.key === 'Backspace') {
+          buf = buf.slice(0, -1);
+          pwTyped.textContent = '*'.repeat(buf.length);
+        } else if (e.key.length === 1) {
+          buf += e.key;
+          pwTyped.textContent = '*'.repeat(buf.length);
+        }
+      }, true);
+    })();
+  </script>
+
   <script src="mespeak.js"></script>
   <script src="mespeak-core.js"></script>
   <script src="patterns.js"></script>
